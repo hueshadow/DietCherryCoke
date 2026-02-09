@@ -1,0 +1,50 @@
+---
+interface Props {
+  productName: string;
+  asin: string;
+  description?: string;
+  imageUrl?: string;
+  price?: string;
+}
+
+const { productName, asin, description, imageUrl, price } = Astro.props;
+
+const affiliateTag = import.meta.env.PUBLIC_AMAZON_AFFILIATE_TAG || 'dietcherrycoke-20';
+const productUrl = `https://www.amazon.com/dp/${asin}?tag=${affiliateTag}`;
+---
+
+<div class="my-6 rounded-lg border border-border bg-bg-tertiary p-4 sm:p-6">
+  <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
+    {imageUrl && (
+      <div class="flex-shrink-0">
+        <img
+          src={imageUrl}
+          alt={productName}
+          width="120"
+          height="120"
+          class="rounded-md object-contain"
+          loading="lazy"
+        />
+      </div>
+    )}
+    <div class="flex-1">
+      <h4 class="text-lg font-semibold text-text-primary">{productName}</h4>
+      {description && (
+        <p class="mt-1 text-sm text-text-secondary">{description}</p>
+      )}
+      {price && (
+        <p class="mt-2 text-lg font-bold text-accent">{price}</p>
+      )}
+    </div>
+    <div class="flex-shrink-0">
+      <a
+        href={productUrl}
+        target="_blank"
+        rel="nofollow sponsored noopener"
+        class="inline-block rounded-md bg-accent px-6 py-3 text-sm font-semibold text-white no-underline transition-colors duration-250 hover:bg-accent-hover"
+      >
+        Buy on Amazon
+      </a>
+    </div>
+  </div>
+</div>

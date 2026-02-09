@@ -1,4 +1,6 @@
 ---
+import SearchButton from './SearchButton.tsx';
+
 const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'Is It Back?', href: '/is-it-back' },
@@ -37,17 +39,10 @@ const currentPath = Astro.url.pathname;
       ))}
     </ul>
 
-    <!-- Search icon (desktop) -->
-    <button
-      class="hidden text-text-secondary transition-colors duration-250 hover:text-text-primary md:block"
-      aria-label="Search"
-      type="button"
-    >
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="11" cy="11" r="8" />
-        <path d="m21 21-4.3-4.3" />
-      </svg>
-    </button>
+    <!-- Search (React Island) -->
+    <div class="hidden md:block">
+      <SearchButton client:idle />
+    </div>
 
     <!-- Mobile hamburger -->
     <button

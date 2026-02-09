@@ -1,6 +1,7 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
+import AdSlot from '../components/AdSlot.astro';
 
 interface Props {
   title: string;
@@ -11,6 +12,7 @@ interface Props {
   author?: string;
   breadcrumbs?: Array<{ label: string; href?: string }>;
   hideSidebar?: boolean;
+  showAds?: boolean;
 }
 
 const {
@@ -22,6 +24,7 @@ const {
   author,
   breadcrumbs,
   hideSidebar = false,
+  showAds = true,
 } = Astro.props;
 ---
 
@@ -45,6 +48,7 @@ const {
     ]}>
       <!-- Main content -->
       <article class="min-w-0">
+        {showAds && <AdSlot slot="top" />}
         <slot />
       </article>
 
@@ -53,6 +57,7 @@ const {
         <aside class="hidden lg:block">
           <div class="sticky top-24 space-y-8">
             <slot name="sidebar" />
+            {showAds && <AdSlot slot="sidebar" />}
           </div>
         </aside>
       )}

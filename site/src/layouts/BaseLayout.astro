@@ -27,6 +27,14 @@ const props = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <SEOHead {...props} />
+    {import.meta.env.PUBLIC_ADSENSE_CLIENT && (
+      <script
+        async
+        src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${import.meta.env.PUBLIC_ADSENSE_CLIENT}`}
+        crossorigin="anonymous"
+        is:inline
+      />
+    )}
     <slot name="head" />
   </head>
   <body class="flex min-h-dvh flex-col bg-bg-primary text-text-primary">

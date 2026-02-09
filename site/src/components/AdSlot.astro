@@ -1,0 +1,47 @@
+---
+interface Props {
+  slot: 'top' | 'mid' | 'sidebar';
+  format?: 'auto' | 'horizontal' | 'vertical' | 'rectangle';
+}
+
+const { slot, format = 'auto' } = Astro.props;
+
+const adClient = import.meta.env.PUBLIC_ADSENSE_CLIENT || '';
+const adSlots: Record<string, string> = {
+  top: import.meta.env.PUBLIC_ADSENSE_SLOT_TOP || '',
+  mid: import.meta.env.PUBLIC_ADSENSE_SLOT_MID || '',
+  sidebar: import.meta.env.PUBLIC_ADSENSE_SLOT_SIDEBAR || '',
+};
+
+const dimensions: Record<string, { minHeight: string }> = {
+  top: { minHeight: '90px' },
+  mid: { minHeight: '250px' },
+  sidebar: { minHeight: '600px' },
+};
+
+const adSlotId = adSlots[slot];
+const hasAds = adClient && adSlotId;
+---
+
+{hasAds && (
+  <div
+    class:list={[
+      'ad-container my-6 flex items-center justify-center overflow-hidden rounded-lg border border-border bg-bg-tertiary',
+      slot === 'sidebar' && 'hidden lg:flex',
+    ]}
+    style={`min-height: ${dimensions[slot].minHeight}`}
+    data-ad-slot={slot}
+  >
+    <ins
+      class="adsbygoogle"
+      style="display:block"
+      data-ad-client={adClient}
+      data-ad-slot={adSlotId}
+      data-ad-format={format}
+      data-full-width-responsive="true"
+    />
+    <script is:inline>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+)}

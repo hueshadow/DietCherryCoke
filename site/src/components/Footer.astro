@@ -1,4 +1,6 @@
 ---
+import NewsletterForm from './NewsletterForm.tsx';
+
 const currentYear = new Date().getFullYear();
 
 const footerLinks = [
@@ -66,28 +68,15 @@ const footerLinks = [
       ))}
     </div>
 
-    <!-- Newsletter placeholder -->
+    <!-- Newsletter -->
     <div class="mt-12 rounded-lg border border-border bg-bg-tertiary p-6">
       <h3 class="text-lg font-semibold text-text-primary">Stay Updated</h3>
       <p class="mt-1 text-sm text-text-secondary">
         Get notified about Diet Cherry Coke availability and news.
       </p>
-      <!-- Newsletter form will be a React Island in Phase 4 -->
-      <div class="mt-4 flex gap-3">
-        <input
-          type="email"
-          placeholder="your@email.com"
-          disabled
-          class="flex-1 rounded-md border border-border bg-bg-primary px-4 py-2 text-sm text-text-primary placeholder:text-text-muted disabled:opacity-50"
-        />
-        <button
-          disabled
-          class="rounded-md bg-accent px-6 py-2 text-sm font-medium text-white disabled:opacity-50"
-        >
-          Subscribe
-        </button>
+      <div class="mt-4">
+        <NewsletterForm client:idle />
       </div>
-      <p class="mt-2 text-xs text-text-muted">Coming soon</p>
     </div>
 
     <!-- Disclaimer -->
