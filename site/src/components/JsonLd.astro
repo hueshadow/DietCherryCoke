@@ -1,0 +1,118 @@
+---
+type JsonLdType =
+  | 'Article'
+  | 'Recipe'
+  | 'FAQPage'
+  | 'BreadcrumbList'
+  | 'Product'
+  | 'WebSite';
+
+interface Props {
+  type: JsonLdType;
+  data: Record<string, unknown>;
+}
+
+const { type, data } = Astro.props;
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://dietcherrycoke.net';
+
+function buildSchema(type: JsonLdType, data: Record<string, unknown>) {
+  const base = {
+    '@context': 'https://schema.org',
+    '@type': type,
+  };
+
+  switch (type) {
+    case 'Article':
+      return {
+        ...base,
+        headline: data.title,
+        description: data.description,
+        image: data.image,
+        datePublished: data.publishDate,
+        dateModified: data.modifiedDate ?? data.publishDate,
+        author: {
+          '@type': 'Person',
+          name: data.author ?? 'Diet Cherry Coke Team',
+        },
+        publisher: {
+          '@type': 'Organization',
+          name: 'Diet Cherry Coke',
+          url: siteUrl,
+        },
+        mainEntityOfPage: {
+          '@type': 'WebPage',
+          '@id': data.url ?? siteUrl,
+        },
+      };
+
+    case 'Recipe':
+      return {
+        ...base,
+        name: data.title,
+        description: data.description,
+        image: data.image,
+        prepTime: data.prepTime,
+        cookTime: data.cookTime,
+        recipeYield: data.servings ? `${data.servings} servings` : undefined,
+        recipeIngredient: data.ingredients,
+        recipeInstructions: data.instructions,
+      };
+
+    case 'FAQPage':
+      return {
+        ...base,
+        mainEntity: (data.questions as Array<{ question: string; answer: string }>)?.map(
+          (q) => ({
+            '@type': 'Question',
+            name: q.question,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: q.answer,
+            },
+          })
+        ),
+      };
+
+    case 'BreadcrumbList':
+      return {
+        ...base,
+        itemListElement: (data.items as Array<{ label: string; href?: string }>)?.map(
+          (item, index) => ({
+            '@type': 'ListItem',
+            position: index + 1,
+            name: item.label,
+            item: item.href ? `${siteUrl}${item.href}` : undefined,
+          })
+        ),
+      };
+
+    case 'Product':
+      return {
+        ...base,
+        name: data.name,
+        description: data.description,
+        brand: {
+          '@type': 'Brand',
+          name: data.brand ?? 'Coca-Cola',
+        },
+        image: data.image,
+      };
+
+    case 'WebSite':
+      return {
+        ...base,
+        name: 'Diet Cherry Coke',
+        url: siteUrl,
+        description: data.description,
+      };
+
+    default:
+      return { ...base, ...data };
+  }
+}
+
+const schema = buildSchema(type, data);
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

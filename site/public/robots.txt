@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dietcherrycoke.net/sitemap-index.xml

@@ -1,0 +1,63 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  publishDate?: string;
+  modifiedDate?: string;
+  author?: string;
+  breadcrumbs?: Array<{ label: string; href?: string }>;
+  hideSidebar?: boolean;
+}
+
+const {
+  title,
+  description,
+  image,
+  publishDate,
+  modifiedDate,
+  author,
+  breadcrumbs,
+  hideSidebar = false,
+} = Astro.props;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  image={image}
+  type="article"
+  publishDate={publishDate}
+  modifiedDate={modifiedDate}
+  author={author}
+>
+  <slot name="head" slot="head" />
+
+  <div class="mx-auto max-w-[1200px] px-4 py-8 sm:px-6 lg:px-8">
+    {breadcrumbs && <Breadcrumb items={breadcrumbs} />}
+
+    <div class:list={[
+      'mt-6 grid gap-8',
+      !hideSidebar && 'lg:grid-cols-[1fr_300px]',
+    ]}>
+      <!-- Main content -->
+      <article class="min-w-0">
+        <slot />
+      </article>
+
+      <!-- Sidebar -->
+      {!hideSidebar && (
+        <aside class="hidden lg:block">
+          <div class="sticky top-24 space-y-8">
+            <slot name="sidebar" />
+          </div>
+        </aside>
+      )}
+    </div>
+  </div>
+
+  <slot name="schema" slot="schema" />
+</BaseLayout>

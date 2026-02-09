@@ -1,0 +1,59 @@
+---
+import LandingLayout from '../layouts/LandingLayout.astro';
+import JsonLd from '../components/JsonLd.astro';
+---
+
+<LandingLayout
+  title="Diet Cherry Coke — Is It Back? Where to Buy, Nutrition & More"
+  description="Your ultimate guide to Diet Cherry Coke. Find out if it's back, where to buy it, nutrition facts, recipes, and how it compares to other diet sodas."
+>
+  <!-- Hero -->
+  <section slot="hero" class="bg-bg-secondary py-20 text-center">
+    <div class="mx-auto max-w-3xl px-4">
+      <h1 class="text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
+        Everything About<br />
+        <span class="text-accent">Diet Cherry Coke</span>
+      </h1>
+      <p class="mt-6 text-lg text-text-secondary sm:text-xl">
+        Is it back? Where can you buy it? Get the latest on availability, nutrition facts, recipes, and comparisons.
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <a
+          href="/is-diet-cherry-coke-back"
+          class="rounded-lg bg-accent px-6 py-3 font-semibold text-white no-underline transition-colors duration-250 hover:bg-accent-hover"
+        >
+          Is It Back?
+        </a>
+        <a
+          href="/where-to-buy"
+          class="rounded-lg border border-border px-6 py-3 font-semibold text-text-primary no-underline transition-colors duration-250 hover:border-border-hover hover:bg-bg-tertiary"
+        >
+          Where to Buy
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick links grid -->
+  <section class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <a href="/nutrition" class="group rounded-lg border border-border bg-bg-card p-6 no-underline transition-colors duration-250 hover:border-accent">
+      <h2 class="text-lg font-semibold text-text-primary group-hover:text-accent">Nutrition Facts</h2>
+      <p class="mt-2 text-sm text-text-secondary">Calories, ingredients, and how it compares to regular Cherry Coke.</p>
+    </a>
+    <a href="/recipes" class="group rounded-lg border border-border bg-bg-card p-6 no-underline transition-colors duration-250 hover:border-accent">
+      <h2 class="text-lg font-semibold text-text-primary group-hover:text-accent">Recipes</h2>
+      <p class="mt-2 text-sm text-text-secondary">Creative cocktails and mocktails made with Diet Cherry Coke.</p>
+    </a>
+    <a href="/compare" class="group rounded-lg border border-border bg-bg-card p-6 no-underline transition-colors duration-250 hover:border-accent">
+      <h2 class="text-lg font-semibold text-text-primary group-hover:text-accent">Compare</h2>
+      <p class="mt-2 text-sm text-text-secondary">Diet Cherry Coke vs Diet Coke, Cherry Coke Zero, and more.</p>
+    </a>
+  </section>
+
+  <!-- JSON-LD -->
+  <JsonLd
+    slot="schema"
+    type="WebSite"
+    data={{ description: 'Your ultimate guide to Diet Cherry Coke — availability, nutrition facts, recipes, and where to buy.' }}
+  />
+</LandingLayout>
