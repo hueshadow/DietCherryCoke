@@ -1,0 +1,314 @@
+---
+import LandingLayout from '../layouts/LandingLayout.astro';
+import JsonLd from '../components/JsonLd.astro';
+
+const lastUpdated = 'February 9, 2026';
+
+const retailers = [
+  {
+    name: 'Walmart',
+    status: 'in-stock' as const,
+    sizes: ['12-pack (12 oz cans)', '2-liter bottle'],
+    priceRange: '$5.98 – $7.48',
+    note: 'Available in-store and online. Check Walmart.com for local availability.',
+    url: '/where-to-buy/walmart',
+  },
+  {
+    name: 'Kroger',
+    status: 'in-stock' as const,
+    sizes: ['12-pack (12 oz cans)', '20 oz bottle'],
+    priceRange: '$6.49 – $7.99',
+    note: 'Available at Kroger family stores including Ralphs, Fred Meyer, and Harris Teeter.',
+    url: '/where-to-buy/kroger',
+  },
+  {
+    name: 'Target',
+    status: 'limited' as const,
+    sizes: ['12-pack (12 oz cans)'],
+    priceRange: '$6.29 – $7.49',
+    note: 'Rolling out to stores nationwide. Use Target app to check local stock.',
+    url: '/where-to-buy/target',
+  },
+  {
+    name: 'Amazon',
+    status: 'in-stock' as const,
+    sizes: ['12-pack (12 oz cans)', '24-pack (12 oz cans)'],
+    priceRange: '$8.99 – $18.99',
+    note: 'Available with Prime delivery. Subscribe & Save for additional discounts.',
+    url: '/where-to-buy/amazon',
+  },
+  {
+    name: 'Walgreens',
+    status: 'limited' as const,
+    sizes: ['20 oz bottle', '2-liter bottle'],
+    priceRange: '$2.29 – $3.49',
+    note: 'Availability varies by location. Single-serve bottles most common.',
+    url: '/where-to-buy/walgreens',
+  },
+  {
+    name: 'CVS',
+    status: 'limited' as const,
+    sizes: ['20 oz bottle'],
+    priceRange: '$2.49 – $2.99',
+    note: 'Limited availability. Check CVS.com for store inventory.',
+    url: '/where-to-buy/cvs',
+  },
+];
+
+const statusColors = {
+  'in-stock': 'text-green-400',
+  'limited': 'text-yellow-400',
+  'out-of-stock': 'text-red-400',
+  'unknown': 'text-text-muted',
+};
+
+const statusLabels = {
+  'in-stock': 'In Stock',
+  'limited': 'Limited Availability',
+  'out-of-stock': 'Out of Stock',
+  'unknown': 'Unknown',
+};
+
+const faqItems = [
+  {
+    question: 'Where can I buy Diet Cherry Coke right now?',
+    answer: 'Diet Cherry Coke is currently available at Walmart, Kroger, Target, Amazon, Walgreens, and CVS. Walmart and Amazon have the widest availability, while other retailers are still rolling out stock.',
+  },
+  {
+    question: 'Can I buy Diet Cherry Coke online?',
+    answer: 'Yes! Amazon offers Diet Cherry Coke in 12-pack and 24-pack options with Prime delivery. Walmart.com also offers online ordering with delivery or in-store pickup.',
+  },
+  {
+    question: 'How much does Diet Cherry Coke cost?',
+    answer: 'Prices vary by retailer and size. A 12-pack of cans typically costs $5.98–$7.99, a 20 oz bottle runs $2.29–$2.99, and a 2-liter bottle is around $2.49–$3.49.',
+  },
+  {
+    question: 'What sizes does Diet Cherry Coke come in?',
+    answer: 'Diet Cherry Coke is available in 12 oz cans (sold in 12-packs and 24-packs), 20 oz bottles, and 2-liter bottles. Not all sizes are available at every retailer.',
+  },
+  {
+    question: 'Is Diet Cherry Coke available at gas stations and convenience stores?',
+    answer: 'Diet Cherry Coke is beginning to appear at gas stations and convenience stores, primarily in 20 oz bottles. Availability is expanding but may be limited in some areas during the initial rollout.',
+  },
+];
+---
+
+<LandingLayout
+  title="Where to Buy Diet Cherry Coke — Store Finder & Guide"
+  description="Find Diet Cherry Coke near you. Complete guide to availability at Walmart, Kroger, Target, Amazon, and more. Updated pricing and stock status for 2026."
+>
+  <!-- Hero -->
+  <section slot="hero" class="bg-bg-secondary py-16 text-center">
+    <div class="mx-auto max-w-3xl px-4">
+      <p class="mb-4 text-sm text-text-muted">Last Updated: {lastUpdated}</p>
+      <h1 class="text-4xl font-bold leading-tight sm:text-5xl">
+        Where to Buy <span class="text-accent">Diet Cherry Coke</span>
+      </h1>
+
+      <!-- Quick Answer Card -->
+      <div class="mx-auto mt-8 max-w-lg rounded-lg border border-accent/30 bg-bg-tertiary p-6 text-left">
+        <h2 class="mb-2 text-sm font-semibold uppercase tracking-wider text-accent">Quick Answer</h2>
+        <p class="text-text-secondary">
+          Yes, Diet Cherry Coke is available at major US retailers! <strong class="text-text-primary">Walmart</strong> and <strong class="text-text-primary">Amazon</strong> have the widest availability, with <strong class="text-text-primary">Kroger</strong>, <strong class="text-text-primary">Target</strong>, and others rolling out stock.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Table of Contents -->
+  <nav class="mb-12 rounded-lg border border-border bg-bg-card p-6">
+    <h2 class="mb-4 text-lg font-semibold">Table of Contents</h2>
+    <ol class="list-inside list-decimal space-y-2 text-sm text-text-secondary">
+      <li><a href="#retailers" class="hover:text-text-primary">Retailer Availability</a></li>
+      <li><a href="#online" class="hover:text-text-primary">Buy Online</a></li>
+      <li><a href="#price-comparison" class="hover:text-text-primary">Price Comparison</a></li>
+      <li><a href="#sizes" class="hover:text-text-primary">Available Sizes</a></li>
+      <li><a href="#tips" class="hover:text-text-primary">Tips for Finding Stock</a></li>
+      <li><a href="#faq" class="hover:text-text-primary">Frequently Asked Questions</a></li>
+    </ol>
+  </nav>
+
+  <!-- Retailer Cards -->
+  <section id="retailers" class="mb-12">
+    <h2 class="mb-6 text-2xl font-bold">Retailer Availability</h2>
+    <p class="mb-6 text-text-secondary leading-relaxed">
+      Diet Cherry Coke is back on shelves at major retailers across the United States. Here's the current availability status at each store, along with pricing and available sizes. We update this information regularly to keep you informed.
+    </p>
+    <div class="grid gap-4 sm:grid-cols-2">
+      {retailers.map((retailer) => (
+        <div class="rounded-lg border border-border bg-bg-card p-6 transition-colors hover:border-border-hover">
+          <div class="flex items-start justify-between">
+            <h3 class="text-lg font-semibold text-text-primary">{retailer.name}</h3>
+            <span class:list={['text-sm font-medium', statusColors[retailer.status]]}>
+              {statusLabels[retailer.status]}
+            </span>
+          </div>
+          <p class="mt-2 text-sm text-text-muted">{retailer.priceRange}</p>
+          <ul class="mt-3 space-y-1">
+            {retailer.sizes.map((size) => (
+              <li class="text-sm text-text-secondary">&#8226; {size}</li>
+            ))}
+          </ul>
+          <p class="mt-3 text-xs text-text-muted">{retailer.note}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Online Options -->
+  <section id="online" class="mb-12">
+    <h2 class="mb-4 text-2xl font-bold">Buy Diet Cherry Coke Online</h2>
+    <p class="mb-4 text-text-secondary leading-relaxed">
+      Can't find Diet Cherry Coke at your local store? Online ordering is your best bet for guaranteed availability. Here are the top online options:
+    </p>
+    <div class="space-y-4">
+      <div class="rounded-lg border border-border bg-bg-card p-5">
+        <h3 class="font-semibold text-text-primary">Amazon</h3>
+        <p class="mt-1 text-sm text-text-secondary">The most reliable online source. Available in 12-packs and 24-packs with Prime delivery. Subscribe & Save offers an additional 5-15% discount on recurring orders.</p>
+        <p class="mt-2 text-sm text-accent">Starting at $8.99 for a 12-pack</p>
+      </div>
+      <div class="rounded-lg border border-border bg-bg-card p-5">
+        <h3 class="font-semibold text-text-primary">Walmart.com</h3>
+        <p class="mt-1 text-sm text-text-secondary">Order online for delivery or free in-store pickup. Often has the lowest prices. Walmart+ members get free delivery on orders over $35.</p>
+        <p class="mt-2 text-sm text-accent">Starting at $5.98 for a 12-pack</p>
+      </div>
+      <div class="rounded-lg border border-border bg-bg-card p-5">
+        <h3 class="font-semibold text-text-primary">Instacart</h3>
+        <p class="mt-1 text-sm text-text-secondary">Same-day delivery from local stores including Kroger, Publix, and Safeway. Prices match in-store pricing plus delivery fee.</p>
+        <p class="mt-2 text-sm text-accent">Prices vary by store</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Price Comparison -->
+  <section id="price-comparison" class="mb-12">
+    <h2 class="mb-4 text-2xl font-bold">Price Comparison</h2>
+    <p class="mb-4 text-text-secondary leading-relaxed">
+      Prices for Diet Cherry Coke vary by retailer and package size. Here's a side-by-side comparison to help you find the best deal:
+    </p>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b border-border text-left">
+            <th class="py-3 pr-4 font-semibold text-text-primary">Retailer</th>
+            <th class="py-3 pr-4 font-semibold text-text-primary">12-Pack</th>
+            <th class="py-3 pr-4 font-semibold text-text-primary">20 oz</th>
+            <th class="py-3 font-semibold text-text-primary">2-Liter</th>
+          </tr>
+        </thead>
+        <tbody class="text-text-secondary">
+          <tr class="border-b border-border/50">
+            <td class="py-2 pr-4 font-medium text-text-primary">Walmart</td>
+            <td class="py-2 pr-4 text-accent">$5.98</td>
+            <td class="py-2 pr-4">—</td>
+            <td class="py-2">$2.28</td>
+          </tr>
+          <tr class="border-b border-border/50">
+            <td class="py-2 pr-4 font-medium text-text-primary">Kroger</td>
+            <td class="py-2 pr-4">$6.49</td>
+            <td class="py-2 pr-4">$2.29</td>
+            <td class="py-2">—</td>
+          </tr>
+          <tr class="border-b border-border/50">
+            <td class="py-2 pr-4 font-medium text-text-primary">Target</td>
+            <td class="py-2 pr-4">$6.29</td>
+            <td class="py-2 pr-4">—</td>
+            <td class="py-2">—</td>
+          </tr>
+          <tr class="border-b border-border/50">
+            <td class="py-2 pr-4 font-medium text-text-primary">Amazon</td>
+            <td class="py-2 pr-4">$8.99</td>
+            <td class="py-2 pr-4">—</td>
+            <td class="py-2">—</td>
+          </tr>
+          <tr class="border-b border-border/50">
+            <td class="py-2 pr-4 font-medium text-text-primary">Walgreens</td>
+            <td class="py-2 pr-4">—</td>
+            <td class="py-2 pr-4">$2.49</td>
+            <td class="py-2">$3.49</td>
+          </tr>
+          <tr>
+            <td class="py-2 pr-4 font-medium text-text-primary">CVS</td>
+            <td class="py-2 pr-4">—</td>
+            <td class="py-2 pr-4">$2.49</td>
+            <td class="py-2">—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="mt-3 text-xs text-text-muted">Prices as of {lastUpdated}. Prices may vary by location.</p>
+  </section>
+
+  <!-- Available Sizes -->
+  <section id="sizes" class="mb-12">
+    <h2 class="mb-4 text-2xl font-bold">Available Sizes</h2>
+    <p class="mb-4 text-text-secondary leading-relaxed">
+      Diet Cherry Coke is available in several convenient sizes to suit your needs:
+    </p>
+    <div class="grid gap-4 sm:grid-cols-3">
+      <div class="rounded-lg border border-border bg-bg-card p-5 text-center">
+        <p class="text-3xl font-bold text-accent">12 oz</p>
+        <p class="mt-1 text-sm text-text-primary">Cans</p>
+        <p class="mt-2 text-xs text-text-muted">Sold in 12-packs and 24-packs</p>
+      </div>
+      <div class="rounded-lg border border-border bg-bg-card p-5 text-center">
+        <p class="text-3xl font-bold text-accent">20 oz</p>
+        <p class="mt-1 text-sm text-text-primary">Bottles</p>
+        <p class="mt-2 text-xs text-text-muted">Single-serve, grab-and-go</p>
+      </div>
+      <div class="rounded-lg border border-border bg-bg-card p-5 text-center">
+        <p class="text-3xl font-bold text-accent">2 L</p>
+        <p class="mt-1 text-sm text-text-primary">Bottles</p>
+        <p class="mt-2 text-xs text-text-muted">Family size, best value per oz</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tips -->
+  <section id="tips" class="mb-12">
+    <h2 class="mb-4 text-2xl font-bold">Tips for Finding Diet Cherry Coke in Stock</h2>
+    <p class="mb-4 text-text-secondary leading-relaxed">
+      During the initial rollout, Diet Cherry Coke may sell out quickly at some locations. Here are some tips to improve your chances of finding it:
+    </p>
+    <ol class="list-inside list-decimal space-y-3 text-text-secondary">
+      <li><strong class="text-text-primary">Check online first.</strong> Use retailer apps and websites to check local inventory before making a trip.</li>
+      <li><strong class="text-text-primary">Shop early in the week.</strong> Most stores restock beverages on Monday or Tuesday.</li>
+      <li><strong class="text-text-primary">Try the beverage aisle and endcaps.</strong> New products are often featured on endcap displays.</li>
+      <li><strong class="text-text-primary">Ask a store associate.</strong> They can check backroom inventory and tell you when the next shipment arrives.</li>
+      <li><strong class="text-text-primary">Set up alerts.</strong> Amazon and Walmart allow you to set notifications for when items are back in stock.</li>
+      <li><strong class="text-text-primary">Consider online ordering.</strong> If local stores are sold out, Amazon and Walmart.com usually have stock available for delivery.</li>
+    </ol>
+    <p class="mt-4 text-text-secondary leading-relaxed">
+      Want to know more about the comeback? Read our <a href="/is-it-back">Is Diet Cherry Coke Back?</a> page for the full story, or check out the <a href="/nutrition">nutrition facts</a> to see what's in every can.
+    </p>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="mb-12">
+    <h2 class="mb-6 text-2xl font-bold">Frequently Asked Questions</h2>
+    <div class="space-y-4">
+      {faqItems.map((item) => (
+        <details class="group rounded-lg border border-border bg-bg-card">
+          <summary class="cursor-pointer px-6 py-4 font-medium text-text-primary transition-colors hover:text-accent">
+            {item.question}
+          </summary>
+          <p class="px-6 pb-4 text-sm text-text-secondary leading-relaxed">
+            {item.answer}
+          </p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <!-- JSON-LD -->
+  <JsonLd
+    slot="schema"
+    type="FAQPage"
+    data={{
+      questions: faqItems.map((item) => ({
+        question: item.question,
+        answer: item.answer,
+      })),
+    }}
+  />
+</LandingLayout>

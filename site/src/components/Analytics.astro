@@ -1,0 +1,26 @@
+---
+const cfToken = import.meta.env.PUBLIC_CF_ANALYTICS_TOKEN;
+const ga4Id = import.meta.env.PUBLIC_GA4_MEASUREMENT_ID;
+---
+
+{/* Cloudflare Web Analytics — no cookies, privacy-friendly */}
+{cfToken && (
+  <script
+    defer
+    src="https://static.cloudflareinsights.com/beacon.min.js"
+    data-cf-beacon={`{"token": "${cfToken}"}`}
+  />
+)}
+
+{/* Google Analytics 4 */}
+{ga4Id && (
+  <>
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${ga4Id}`} />
+    <script is:inline define:vars={{ ga4Id }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', ga4Id);
+    </script>
+  </>
+)}

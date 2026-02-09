@@ -1,0 +1,335 @@
+---
+import LandingLayout from '../layouts/LandingLayout.astro';
+import JsonLd from '../components/JsonLd.astro';
+
+const lastUpdated = 'February 9, 2026';
+
+const faqItems = [
+  {
+    question: 'How many calories are in Diet Cherry Coke?',
+    answer: 'Diet Cherry Coke contains 0 calories per 12 oz (355 mL) serving. It is a zero-calorie beverage sweetened with aspartame instead of sugar.',
+  },
+  {
+    question: 'How much caffeine is in Diet Cherry Coke?',
+    answer: 'Diet Cherry Coke contains approximately 46 mg of caffeine per 12 oz can. This is slightly more than regular Diet Coke (46 mg) and more than Coke Zero Cherry (34 mg).',
+  },
+  {
+    question: 'What sweetener does Diet Cherry Coke use?',
+    answer: 'Diet Cherry Coke is sweetened with aspartame, the same artificial sweetener used in regular Diet Coke. It does not contain acesulfame potassium (Ace-K), which is used in Coke Zero Sugar products.',
+  },
+  {
+    question: 'Is Diet Cherry Coke sugar-free?',
+    answer: 'Yes, Diet Cherry Coke is completely sugar-free. It contains 0 grams of sugar and 0 grams of total carbohydrates per serving.',
+  },
+  {
+    question: 'Does Diet Cherry Coke contain sodium?',
+    answer: 'Yes, Diet Cherry Coke contains approximately 40 mg of sodium per 12 oz serving, which is about 2% of the recommended daily value.',
+  },
+  {
+    question: 'Is Diet Cherry Coke keto-friendly?',
+    answer: 'Yes, Diet Cherry Coke is keto-friendly as it contains 0 calories, 0 grams of sugar, and 0 grams of carbohydrates. However, some keto practitioners prefer to avoid artificial sweeteners.',
+  },
+  {
+    question: 'What is the difference between Diet Cherry Coke and Cherry Coke Zero?',
+    answer: 'Diet Cherry Coke uses the Diet Coke formula (sweetened with aspartame) as its base, while Cherry Coke Zero uses the Coke Zero Sugar formula (sweetened with aspartame and acesulfame potassium). They have different taste profiles — Diet Cherry Coke has a more distinctive diet cola taste, while Cherry Coke Zero aims to taste more like regular Cherry Coke.',
+  },
+];
+---
+
+<LandingLayout
+  title="Diet Cherry Coke Nutrition Facts: Calories, Caffeine & More"
+  description="Complete nutrition facts for Diet Cherry Coke. Zero calories, caffeine content, ingredients list, and how it compares to other diet sodas. Updated for 2026."
+>
+  <!-- Hero -->
+  <section slot="hero" class="bg-bg-secondary py-16 text-center">
+    <div class="mx-auto max-w-3xl px-4">
+      <p class="mb-4 text-sm text-text-muted">Last Updated: {lastUpdated}</p>
+      <h1 class="text-4xl font-bold leading-tight sm:text-5xl">
+        <span class="text-accent">Diet Cherry Coke</span> Nutrition Facts
+      </h1>
+
+      <!-- Quick Answer Card -->
+      <div class="mx-auto mt-8 max-w-lg rounded-lg border border-accent/30 bg-bg-tertiary p-6 text-left">
+        <h2 class="mb-2 text-sm font-semibold uppercase tracking-wider text-accent">Quick Facts</h2>
+        <p class="text-text-secondary">
+          Diet Cherry Coke has <strong class="text-text-primary">0 calories</strong>, <strong class="text-text-primary">0g sugar</strong>, and <strong class="text-text-primary">46mg caffeine</strong> per 12 oz can. It's sweetened with aspartame and contains natural cherry flavoring.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Table of Contents -->
+  <nav class="mb-12 rounded-lg border border-border bg-bg-card p-6">
+    <h2 class="mb-4 text-lg font-semibold">Table of Contents</h2>
+    <ol class="list-inside list-decimal space-y-2 text-sm text-text-secondary">
+      <li><a href="#nutrition-label" class="hover:text-text-primary">Nutrition Label</a></li>
+      <li><a href="#ingredients" class="hover:text-text-primary">Ingredients List</a></li>
+      <li><a href="#caffeine" class="hover:text-text-primary">Caffeine Content</a></li>
+      <li><a href="#comparison" class="hover:text-text-primary">Comparison with Other Drinks</a></li>
+      <li><a href="#health" class="hover:text-text-primary">Health Considerations</a></li>
+      <li><a href="#faq" class="hover:text-text-primary">Frequently Asked Questions</a></li>
+    </ol>
+  </nav>
+
+  <!-- Nutrition Label -->
+  <section id="nutrition-label" class="mb-12">
+    <h2 class="mb-6 text-2xl font-bold">Nutrition Label</h2>
+    <p class="mb-6 text-text-secondary leading-relaxed">
+      Here are the complete nutrition facts for Diet Cherry Coke per 12 fl oz (355 mL) serving. As a zero-calorie diet soda, Diet Cherry Coke gets its sweetness from aspartame rather than sugar.
+    </p>
+
+    <!-- Nutrition Facts Card -->
+    <div class="mx-auto max-w-sm rounded-lg border-2 border-text-primary bg-bg-card p-6">
+      <h3 class="border-b-8 border-text-primary pb-1 text-2xl font-black">Nutrition Facts</h3>
+      <p class="border-b border-text-primary py-1 text-sm">Serving Size 1 can (355 mL)</p>
+      <div class="border-b-8 border-text-primary py-1">
+        <p class="text-sm font-bold">Amount Per Serving</p>
+        <div class="flex items-baseline justify-between">
+          <span class="text-lg font-black">Calories</span>
+          <span class="text-3xl font-black text-accent">0</span>
+        </div>
+      </div>
+      <div class="border-b border-text-primary py-1 text-right text-xs font-bold">% Daily Value*</div>
+      <div class="divide-y divide-border text-sm">
+        <div class="flex justify-between py-1">
+          <span><strong>Total Fat</strong> 0g</span>
+          <span class="font-bold">0%</span>
+        </div>
+        <div class="flex justify-between py-1 pl-4">
+          <span>Saturated Fat 0g</span>
+          <span class="font-bold">0%</span>
+        </div>
+        <div class="flex justify-between py-1 pl-4">
+          <span>Trans Fat 0g</span>
+          <span></span>
+        </div>
+        <div class="flex justify-between py-1">
+          <span><strong>Cholesterol</strong> 0mg</span>
+          <span class="font-bold">0%</span>
+        </div>
+        <div class="flex justify-between py-1">
+          <span><strong>Sodium</strong> 40mg</span>
+          <span class="font-bold">2%</span>
+        </div>
+        <div class="flex justify-between py-1">
+          <span><strong>Total Carbohydrate</strong> 0g</span>
+          <span class="font-bold">0%</span>
+        </div>
+        <div class="flex justify-between py-1 pl-4">
+          <span>Total Sugars 0g</span>
+          <span></span>
+        </div>
+        <div class="flex justify-between py-1">
+          <span><strong>Protein</strong> 0g</span>
+          <span></span>
+        </div>
+      </div>
+      <div class="border-t-4 border-text-primary pt-1">
+        <div class="flex justify-between py-1 text-sm">
+          <span><strong>Caffeine</strong></span>
+          <span class="font-bold text-accent">46mg</span>
+        </div>
+      </div>
+      <p class="mt-2 text-xs text-text-muted">* Percent Daily Values are based on a 2,000 calorie diet.</p>
+    </div>
+  </section>
+
+  <!-- Ingredients -->
+  <section id="ingredients" class="mb-12">
+    <h2 class="mb-4 text-2xl font-bold">Ingredients List</h2>
+    <p class="mb-4 text-text-secondary leading-relaxed">
+      Diet Cherry Coke contains the following ingredients:
+    </p>
+    <div class="rounded-lg border border-border bg-bg-card p-6">
+      <p class="text-text-secondary leading-relaxed">
+        <strong class="text-text-primary">Carbonated Water</strong>, <strong class="text-text-primary">Caramel Color</strong>, <strong class="text-text-primary">Aspartame</strong>, <strong class="text-text-primary">Phosphoric Acid</strong>, <strong class="text-text-primary">Potassium Benzoate</strong> (to protect taste), <strong class="text-text-primary">Natural Flavors</strong>, <strong class="text-text-primary">Citric Acid</strong>, <strong class="text-text-primary">Caffeine</strong>.
+      </p>
+    </div>
+    <div class="mt-6 space-y-4">
+      <div>
+        <h3 class="font-semibold text-text-primary">Aspartame</h3>
+        <p class="mt-1 text-sm text-text-secondary">The primary sweetener in Diet Cherry Coke. Aspartame is approximately 200 times sweeter than sugar, allowing for zero-calorie sweetness. It has been approved by the FDA since 1981 and is one of the most studied food additives in history.</p>
+      </div>
+      <div>
+        <h3 class="font-semibold text-text-primary">Natural Flavors</h3>
+        <p class="mt-1 text-sm text-text-secondary">This includes the cherry flavoring that gives Diet Cherry Coke its distinctive taste. The exact blend is proprietary to Coca-Cola, but it's derived from natural sources.</p>
+      </div>
+      <div>
+        <h3 class="font-semibold text-text-primary">Phosphoric Acid</h3>
+        <p class="mt-1 text-sm text-text-secondary">Provides the tangy, slightly tart taste characteristic of cola beverages. It also acts as a preservative.</p>
+      </div>
+      <div>
+        <h3 class="font-semibold text-text-primary">Potassium Benzoate</h3>
+        <p class="mt-1 text-sm text-text-secondary">A preservative that helps maintain freshness and protect the flavor of the beverage over time.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Caffeine -->
+  <section id="caffeine" class="mb-12">
+    <h2 class="mb-4 text-2xl font-bold">Caffeine Content</h2>
+    <p class="mb-4 text-text-secondary leading-relaxed">
+      Diet Cherry Coke contains <strong class="text-text-primary">46 mg of caffeine</strong> per 12 oz can. Here's how that compares to other popular beverages:
+    </p>
+    <div class="space-y-3">
+      {[
+        { name: 'Coffee (8 oz)', caffeine: 95, color: 'bg-amber-600' },
+        { name: 'Diet Cherry Coke (12 oz)', caffeine: 46, color: 'bg-accent', highlight: true },
+        { name: 'Diet Coke (12 oz)', caffeine: 46, color: 'bg-text-muted' },
+        { name: 'Diet Dr Pepper Cherry (12 oz)', caffeine: 41, color: 'bg-text-muted' },
+        { name: 'Coke Zero Cherry (12 oz)', caffeine: 34, color: 'bg-text-muted' },
+        { name: 'Green Tea (8 oz)', caffeine: 28, color: 'bg-green-600' },
+      ].map((item) => (
+        <div class:list={['rounded-lg p-3', item.highlight ? 'border border-accent/30 bg-bg-card' : '']}>
+          <div class="flex items-center justify-between text-sm">
+            <span class:list={[item.highlight ? 'font-semibold text-accent' : 'text-text-secondary']}>
+              {item.name}
+            </span>
+            <span class:list={[item.highlight ? 'font-bold text-accent' : 'text-text-primary']}>
+              {item.caffeine} mg
+            </span>
+          </div>
+          <div class="mt-1 h-2 overflow-hidden rounded-full bg-bg-tertiary">
+            <div
+              class:list={['h-full rounded-full', item.color]}
+              style={`width: ${(item.caffeine / 95) * 100}%`}
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+    <p class="mt-4 text-sm text-text-muted">
+      The FDA recommends no more than 400 mg of caffeine per day for most adults. A can of Diet Cherry Coke provides about 11.5% of that limit.
+    </p>
+  </section>
+
+  <!-- Comparison -->
+  <section id="comparison" class="mb-12">
+    <h2 class="mb-4 text-2xl font-bold">Comparison with Other Diet Sodas</h2>
+    <p class="mb-4 text-text-secondary leading-relaxed">
+      How does Diet Cherry Coke stack up against other popular zero-calorie sodas? Here's a detailed nutritional comparison:
+    </p>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b border-border text-left">
+            <th class="py-3 pr-4 font-semibold text-text-primary">Per 12 oz</th>
+            <th class="py-3 pr-4 font-semibold text-accent">Diet Cherry Coke</th>
+            <th class="py-3 pr-4 font-semibold text-text-primary">Diet Coke</th>
+            <th class="py-3 pr-4 font-semibold text-text-primary">Coke Zero Cherry</th>
+            <th class="py-3 font-semibold text-text-primary">Diet Dr Pepper Cherry</th>
+          </tr>
+        </thead>
+        <tbody class="text-text-secondary">
+          <tr class="border-b border-border/50">
+            <td class="py-2 pr-4 font-medium text-text-primary">Calories</td>
+            <td class="py-2 pr-4">0</td>
+            <td class="py-2 pr-4">0</td>
+            <td class="py-2 pr-4">0</td>
+            <td class="py-2">0</td>
+          </tr>
+          <tr class="border-b border-border/50">
+            <td class="py-2 pr-4 font-medium text-text-primary">Sugar</td>
+            <td class="py-2 pr-4">0g</td>
+            <td class="py-2 pr-4">0g</td>
+            <td class="py-2 pr-4">0g</td>
+            <td class="py-2">0g</td>
+          </tr>
+          <tr class="border-b border-border/50">
+            <td class="py-2 pr-4 font-medium text-text-primary">Sodium</td>
+            <td class="py-2 pr-4">40mg</td>
+            <td class="py-2 pr-4">40mg</td>
+            <td class="py-2 pr-4">40mg</td>
+            <td class="py-2">55mg</td>
+          </tr>
+          <tr class="border-b border-border/50">
+            <td class="py-2 pr-4 font-medium text-text-primary">Caffeine</td>
+            <td class="py-2 pr-4 font-semibold text-accent">46mg</td>
+            <td class="py-2 pr-4">46mg</td>
+            <td class="py-2 pr-4">34mg</td>
+            <td class="py-2">41mg</td>
+          </tr>
+          <tr class="border-b border-border/50">
+            <td class="py-2 pr-4 font-medium text-text-primary">Sweetener</td>
+            <td class="py-2 pr-4">Aspartame</td>
+            <td class="py-2 pr-4">Aspartame</td>
+            <td class="py-2 pr-4">Aspartame + Ace-K</td>
+            <td class="py-2">Aspartame</td>
+          </tr>
+          <tr>
+            <td class="py-2 pr-4 font-medium text-text-primary">Phenylalanine</td>
+            <td class="py-2 pr-4">Yes</td>
+            <td class="py-2 pr-4">Yes</td>
+            <td class="py-2 pr-4">Yes</td>
+            <td class="py-2">Yes</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="mt-4 text-text-secondary leading-relaxed">
+      For a more detailed taste and value comparison, check out our <a href="/compare/diet-cherry-coke-vs-coke-zero-cherry">Diet Cherry Coke vs Coke Zero Cherry</a> comparison page.
+    </p>
+  </section>
+
+  <!-- Health Considerations -->
+  <section id="health" class="mb-12">
+    <h2 class="mb-4 text-2xl font-bold">Health Considerations</h2>
+    <p class="mb-4 text-text-secondary leading-relaxed">
+      As a zero-calorie beverage, Diet Cherry Coke can be part of a balanced diet. Here are some health-related points to consider:
+    </p>
+    <div class="grid gap-4 sm:grid-cols-2">
+      <div class="rounded-lg border border-green-800/50 bg-bg-card p-5">
+        <h3 class="mb-2 font-semibold text-green-400">Potential Benefits</h3>
+        <ul class="space-y-1 text-sm text-text-secondary">
+          <li>&#8226; Zero calories — won't contribute to weight gain</li>
+          <li>&#8226; Zero sugar — safe for diabetics (consult your doctor)</li>
+          <li>&#8226; Moderate caffeine — mild energy boost</li>
+          <li>&#8226; Hydration — contributes to daily fluid intake</li>
+          <li>&#8226; Satisfies soda cravings without the sugar</li>
+        </ul>
+      </div>
+      <div class="rounded-lg border border-yellow-800/50 bg-bg-card p-5">
+        <h3 class="mb-2 font-semibold text-yellow-400">Things to Consider</h3>
+        <ul class="space-y-1 text-sm text-text-secondary">
+          <li>&#8226; Contains aspartame (avoid if you have PKU)</li>
+          <li>&#8226; Phosphoric acid may affect dental enamel</li>
+          <li>&#8226; Caffeine content — limit intake if sensitive</li>
+          <li>&#8226; Artificial sweeteners may affect gut microbiome</li>
+          <li>&#8226; Not a substitute for water</li>
+        </ul>
+      </div>
+    </div>
+    <p class="mt-4 text-sm text-text-muted">
+      Note: This information is for educational purposes only and should not be considered medical advice. Consult your healthcare provider for personalized dietary guidance.
+    </p>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="mb-12">
+    <h2 class="mb-6 text-2xl font-bold">Frequently Asked Questions</h2>
+    <div class="space-y-4">
+      {faqItems.map((item) => (
+        <details class="group rounded-lg border border-border bg-bg-card">
+          <summary class="cursor-pointer px-6 py-4 font-medium text-text-primary transition-colors hover:text-accent">
+            {item.question}
+          </summary>
+          <p class="px-6 pb-4 text-sm text-text-secondary leading-relaxed">
+            {item.answer}
+          </p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <!-- JSON-LD -->
+  <JsonLd
+    slot="schema"
+    type="FAQPage"
+    data={{
+      questions: faqItems.map((item) => ({
+        question: item.question,
+        answer: item.answer,
+      })),
+    }}
+  />
+</LandingLayout>

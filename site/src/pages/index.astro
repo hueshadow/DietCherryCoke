@@ -1,15 +1,41 @@
 ---
 import LandingLayout from '../layouts/LandingLayout.astro';
 import JsonLd from '../components/JsonLd.astro';
+
+const lastUpdated = 'February 9, 2026';
+
+const faqItems = [
+  {
+    question: 'What is Diet Cherry Coke?',
+    answer: 'Diet Cherry Coke is a zero-calorie cherry-flavored cola made by The Coca-Cola Company. It combines the classic Diet Coke formula with natural cherry flavoring for a distinctive, sugar-free cherry cola taste.',
+  },
+  {
+    question: 'Is Diet Cherry Coke back in stores?',
+    answer: 'Yes! Diet Cherry Coke officially returned to US store shelves in February 2026 after being discontinued. It is available at major retailers including Walmart, Kroger, Target, and Amazon.',
+  },
+  {
+    question: 'How many calories are in Diet Cherry Coke?',
+    answer: 'Diet Cherry Coke contains 0 calories per 12 oz serving. It is sweetened with aspartame instead of sugar, making it a zero-calorie beverage.',
+  },
+  {
+    question: 'Where can I buy Diet Cherry Coke?',
+    answer: 'Diet Cherry Coke is available at Walmart, Kroger, Target, Amazon, Walgreens, and CVS. Availability is expanding as the product rolls out nationwide. Check our Where to Buy guide for the latest stock information.',
+  },
+  {
+    question: 'What is the difference between Diet Cherry Coke and Cherry Coke Zero?',
+    answer: 'Diet Cherry Coke uses the Diet Coke formula (sweetened with aspartame) while Cherry Coke Zero uses the Coke Zero Sugar formula (sweetened with aspartame and acesulfame potassium). They have different taste profiles — Diet Cherry Coke has a lighter, crisper taste, while Cherry Coke Zero aims to taste more like regular Cherry Coke.',
+  },
+];
 ---
 
 <LandingLayout
-  title="Diet Cherry Coke — Is It Back? Where to Buy, Nutrition & More"
+  title="Diet Cherry Coke — The Complete Guide (2026)"
   description="Your ultimate guide to Diet Cherry Coke. Find out if it's back, where to buy it, nutrition facts, recipes, and how it compares to other diet sodas."
 >
   <!-- Hero -->
   <section slot="hero" class="bg-bg-secondary py-20 text-center">
     <div class="mx-auto max-w-3xl px-4">
+      <p class="mb-4 text-sm text-text-muted">Last Updated: {lastUpdated}</p>
       <h1 class="text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
         Everything About<br />
         <span class="text-accent">Diet Cherry Coke</span>
@@ -19,7 +45,7 @@ import JsonLd from '../components/JsonLd.astro';
       </p>
       <div class="mt-8 flex flex-wrap justify-center gap-4">
         <a
-          href="/is-diet-cherry-coke-back"
+          href="/is-it-back"
           class="rounded-lg bg-accent px-6 py-3 font-semibold text-white no-underline transition-colors duration-250 hover:bg-accent-hover"
         >
           Is It Back?
@@ -34,26 +60,139 @@ import JsonLd from '../components/JsonLd.astro';
     </div>
   </section>
 
+  <!-- Key Facts Box -->
+  <div class="mb-12 rounded-lg border border-accent/30 bg-bg-tertiary p-6">
+    <h2 class="mb-3 text-sm font-semibold uppercase tracking-wider text-accent">Key Facts</h2>
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div>
+        <p class="text-2xl font-bold text-text-primary">0</p>
+        <p class="text-sm text-text-muted">Calories per can</p>
+      </div>
+      <div>
+        <p class="text-2xl font-bold text-accent">Back!</p>
+        <p class="text-sm text-text-muted">Returned Feb 2026</p>
+      </div>
+      <div>
+        <p class="text-2xl font-bold text-text-primary">46mg</p>
+        <p class="text-sm text-text-muted">Caffeine per 12 oz</p>
+      </div>
+      <div>
+        <p class="text-2xl font-bold text-text-primary">6+</p>
+        <p class="text-sm text-text-muted">Major retailers</p>
+      </div>
+    </div>
+  </div>
+
   <!-- Quick links grid -->
-  <section class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+  <section class="mb-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <a href="/is-it-back" class="group rounded-lg border border-border bg-bg-card p-6 no-underline transition-colors duration-250 hover:border-accent">
+      <h2 class="text-lg font-semibold text-text-primary group-hover:text-accent">Is It Back?</h2>
+      <p class="mt-2 text-sm text-text-secondary">The full story on Diet Cherry Coke's 2026 comeback, timeline, and what's changed.</p>
+    </a>
+    <a href="/where-to-buy" class="group rounded-lg border border-border bg-bg-card p-6 no-underline transition-colors duration-250 hover:border-accent">
+      <h2 class="text-lg font-semibold text-text-primary group-hover:text-accent">Where to Buy</h2>
+      <p class="mt-2 text-sm text-text-secondary">Find Diet Cherry Coke at Walmart, Kroger, Target, Amazon, and more.</p>
+    </a>
     <a href="/nutrition" class="group rounded-lg border border-border bg-bg-card p-6 no-underline transition-colors duration-250 hover:border-accent">
       <h2 class="text-lg font-semibold text-text-primary group-hover:text-accent">Nutrition Facts</h2>
-      <p class="mt-2 text-sm text-text-secondary">Calories, ingredients, and how it compares to regular Cherry Coke.</p>
+      <p class="mt-2 text-sm text-text-secondary">Calories, caffeine, ingredients, and how it compares to other diet sodas.</p>
     </a>
     <a href="/recipes" class="group rounded-lg border border-border bg-bg-card p-6 no-underline transition-colors duration-250 hover:border-accent">
       <h2 class="text-lg font-semibold text-text-primary group-hover:text-accent">Recipes</h2>
-      <p class="mt-2 text-sm text-text-secondary">Creative cocktails and mocktails made with Diet Cherry Coke.</p>
+      <p class="mt-2 text-sm text-text-secondary">Creative cocktails, floats, and mocktails made with Diet Cherry Coke.</p>
     </a>
     <a href="/compare" class="group rounded-lg border border-border bg-bg-card p-6 no-underline transition-colors duration-250 hover:border-accent">
       <h2 class="text-lg font-semibold text-text-primary group-hover:text-accent">Compare</h2>
-      <p class="mt-2 text-sm text-text-secondary">Diet Cherry Coke vs Diet Coke, Cherry Coke Zero, and more.</p>
+      <p class="mt-2 text-sm text-text-secondary">Diet Cherry Coke vs Coke Zero Cherry, Diet Coke, and more.</p>
+    </a>
+    <a href="/compare/diet-cherry-coke-vs-coke-zero-cherry" class="group rounded-lg border border-border bg-bg-card p-6 no-underline transition-colors duration-250 hover:border-accent">
+      <h2 class="text-lg font-semibold text-text-primary group-hover:text-accent">vs Coke Zero Cherry</h2>
+      <p class="mt-2 text-sm text-text-secondary">The definitive comparison: taste, nutrition, caffeine, and price.</p>
     </a>
   </section>
 
+  <!-- What is Diet Cherry Coke -->
+  <section class="mb-12">
+    <h2 class="mb-4 text-2xl font-bold">What is Diet Cherry Coke?</h2>
+    <p class="mb-4 text-text-secondary leading-relaxed">
+      Diet Cherry Coke is a zero-calorie cherry-flavored cola produced by The Coca-Cola Company. First introduced in 1986 as a sugar-free variant of Cherry Coke, it quickly became a fan favorite for its unique combination of the classic Diet Coke taste with natural cherry flavoring.
+    </p>
+    <p class="mb-4 text-text-secondary leading-relaxed">
+      Unlike <a href="/compare/diet-cherry-coke-vs-coke-zero-cherry">Coke Zero Cherry</a>, which uses the Coke Zero Sugar formula, Diet Cherry Coke is built on the original Diet Coke base. This gives it a lighter, crisper taste that millions of consumers prefer. The cherry flavor adds a subtle sweetness that complements the cola without overpowering it.
+    </p>
+    <p class="text-text-secondary leading-relaxed">
+      After being quietly phased out in many markets, Diet Cherry Coke has <a href="/is-it-back">officially returned in February 2026</a>, responding to years of passionate fan demand. The returning product uses the same beloved formula, now available at <a href="/where-to-buy">major retailers across the United States</a>.
+    </p>
+  </section>
+
+  <!-- Quick Nutrition Overview -->
+  <section class="mb-12">
+    <h2 class="mb-4 text-2xl font-bold">Quick Nutrition Overview</h2>
+    <p class="mb-4 text-text-secondary leading-relaxed">
+      Diet Cherry Coke is a zero-calorie beverage, making it a popular choice for those watching their calorie intake. Here's a quick snapshot of what's in every 12 oz can:
+    </p>
+    <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      {[
+        { label: 'Calories', value: '0' },
+        { label: 'Sugar', value: '0g' },
+        { label: 'Caffeine', value: '46mg' },
+        { label: 'Sodium', value: '40mg' },
+      ].map((item) => (
+        <div class="rounded-lg border border-border bg-bg-card p-4 text-center">
+          <p class="text-2xl font-bold text-accent">{item.value}</p>
+          <p class="mt-1 text-sm text-text-muted">{item.label}</p>
+        </div>
+      ))}
+    </div>
+    <p class="mt-4 text-text-secondary">
+      For the complete nutritional breakdown including ingredients and health considerations, visit our <a href="/nutrition">Nutrition Facts</a> page.
+    </p>
+  </section>
+
+  <!-- Latest News -->
+  <section class="mb-12">
+    <h2 class="mb-4 text-2xl font-bold">Latest News</h2>
+    <div class="space-y-4">
+      <div class="rounded-lg border border-border bg-bg-card p-5">
+        <p class="text-xs text-accent">February 2026</p>
+        <h3 class="mt-1 font-semibold text-text-primary">Diet Cherry Coke Officially Returns to US Stores</h3>
+        <p class="mt-2 text-sm text-text-secondary">After years of fan campaigns, Diet Cherry Coke is back on shelves at Walmart, Kroger, Target, and Amazon. The returning product features the same classic formula with refreshed packaging.</p>
+        <a href="/is-it-back" class="mt-2 inline-block text-sm">Read the full story &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="mb-12">
+    <h2 class="mb-6 text-2xl font-bold">Frequently Asked Questions</h2>
+    <div class="space-y-4">
+      {faqItems.map((item) => (
+        <details class="group rounded-lg border border-border bg-bg-card">
+          <summary class="cursor-pointer px-6 py-4 font-medium text-text-primary transition-colors hover:text-accent">
+            {item.question}
+          </summary>
+          <p class="px-6 pb-4 text-sm text-text-secondary leading-relaxed">
+            {item.answer}
+          </p>
+        </details>
+      ))}
+    </div>
+  </section>
+
   <!-- JSON-LD -->
-  <JsonLd
-    slot="schema"
-    type="WebSite"
-    data={{ description: 'Your ultimate guide to Diet Cherry Coke — availability, nutrition facts, recipes, and where to buy.' }}
-  />
+  <Fragment slot="schema">
+    <JsonLd
+      type="WebSite"
+      data={{ description: 'Your ultimate guide to Diet Cherry Coke — availability, nutrition facts, recipes, and where to buy.' }}
+    />
+    <JsonLd
+      type="FAQPage"
+      data={{
+        questions: faqItems.map((item) => ({
+          question: item.question,
+          answer: item.answer,
+        })),
+      }}
+    />
+  </Fragment>
 </LandingLayout>
