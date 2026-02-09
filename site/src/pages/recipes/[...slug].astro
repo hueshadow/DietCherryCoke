@@ -1,0 +1,93 @@
+---
+import { getCollection, render } from 'astro:content';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import JsonLd from '../../components/JsonLd.astro';
+
+export async function getStaticPaths() {
+  const recipes = await getCollection('recipes', ({ data }) => !data.draft);
+  return recipes.map((recipe) => ({
+    params: { slug: recipe.id },
+    props: { recipe },
+  }));
+}
+
+const { recipe } = Astro.props;
+const { Content } = await render(recipe);
+const { title, description, prepTime, cookTime, servings, ingredients, image, category } = recipe.data;
+
+const breadcrumbs = [
+  { label: 'Recipes', href: '/recipes' },
+  { label: title },
+];
+---
+
+<ArticleLayout
+  title={title}
+  description={description}
+  image={image?.src}
+  breadcrumbs={breadcrumbs}
+>
+  <header class="mb-8">
+    <h1 class="text-3xl font-bold sm:text-4xl">{title}</h1>
+    <p class="mt-3 text-text-secondary">{description}</p>
+
+    <!-- Recipe Info Card -->
+    <div class="mt-6 grid grid-cols-3 gap-4">
+      <div class="rounded-lg border border-border bg-bg-card p-4 text-center">
+        <p class="text-xs uppercase tracking-wider text-text-muted">Prep Time</p>
+        <p class="mt-1 text-lg font-bold text-accent">{prepTime}</p>
+      </div>
+      <div class="rounded-lg border border-border bg-bg-card p-4 text-center">
+        <p class="text-xs uppercase tracking-wider text-text-muted">Cook Time</p>
+        <p class="mt-1 text-lg font-bold text-accent">{cookTime}</p>
+      </div>
+      <div class="rounded-lg border border-border bg-bg-card p-4 text-center">
+        <p class="text-xs uppercase tracking-wider text-text-muted">Servings</p>
+        <p class="mt-1 text-lg font-bold text-accent">{servings}</p>
+      </div>
+    </div>
+
+    <!-- Ingredients -->
+    <div class="mt-6 rounded-lg border border-border bg-bg-card p-6">
+      <h2 class="mb-3 text-lg font-semibold">Ingredients</h2>
+      <ul class="space-y-2 text-sm text-text-secondary">
+        {ingredients.map((ingredient) => (
+          <li class="flex items-start gap-2">
+            <span class="mt-0.5 text-accent">&#9679;</span>
+            <span>{ingredient}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </header>
+
+  <div class="prose prose-invert max-w-none">
+    <Content />
+  </div>
+
+  <!-- Sidebar -->
+  <Fragment slot="sidebar">
+    <div class="rounded-lg border border-border bg-bg-card p-5">
+      <h3 class="mb-3 text-sm font-semibold uppercase tracking-wider text-text-muted">More Recipes</h3>
+      <ul class="space-y-2 text-sm">
+        <li><a href="/recipes" class="text-text-secondary hover:text-text-primary">All Recipes</a></li>
+        <li><a href="/where-to-buy" class="text-text-secondary hover:text-text-primary">Where to Buy</a></li>
+        <li><a href="/nutrition" class="text-text-secondary hover:text-text-primary">Nutrition Facts</a></li>
+      </ul>
+    </div>
+  </Fragment>
+
+  <JsonLd
+    slot="schema"
+    type="Recipe"
+    data={{
+      title,
+      description,
+      image: image?.src,
+      prepTime,
+      cookTime,
+      servings,
+      ingredients,
+    }}
+  />
+</ArticleLayout>

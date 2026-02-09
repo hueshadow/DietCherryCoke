@@ -1,0 +1,104 @@
+---
+import { getCollection, render } from 'astro:content';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import JsonLd from '../../components/JsonLd.astro';
+
+export async function getStaticPaths() {
+  const retailers = await getCollection('retailers', ({ data }) => !data.draft);
+  return retailers.map((retailer) => ({
+    params: { slug: retailer.id },
+    props: { retailer },
+  }));
+}
+
+const { retailer } = Astro.props;
+const { Content } = await render(retailer);
+const { title, description, retailerName, availability, priceRange, image } = retailer.data;
+
+const statusLabels: Record<string, string> = {
+  'in-stock': 'In Stock',
+  'limited': 'Limited Availability',
+  'out-of-stock': 'Out of Stock',
+  'unknown': 'Unknown',
+};
+
+const statusColors: Record<string, string> = {
+  'in-stock': 'text-green-400',
+  'limited': 'text-yellow-400',
+  'out-of-stock': 'text-red-400',
+  'unknown': 'text-text-muted',
+};
+
+const breadcrumbs = [
+  { label: 'Where to Buy', href: '/where-to-buy' },
+  { label: retailerName },
+];
+---
+
+<ArticleLayout
+  title={title}
+  description={description}
+  image={image?.src}
+  breadcrumbs={breadcrumbs}
+>
+  <header class="mb-8">
+    <h1 class="text-3xl font-bold sm:text-4xl">{title}</h1>
+    <p class="mt-3 text-text-secondary">{description}</p>
+
+    <!-- Status Card -->
+    <div class="mt-6 grid gap-4 sm:grid-cols-3">
+      <div class="rounded-lg border border-border bg-bg-card p-4">
+        <p class="text-xs uppercase tracking-wider text-text-muted">Status</p>
+        <p class:list={['mt-1 text-lg font-bold', statusColors[availability]]}>
+          {statusLabels[availability]}
+        </p>
+      </div>
+      <div class="rounded-lg border border-border bg-bg-card p-4">
+        <p class="text-xs uppercase tracking-wider text-text-muted">Price Range</p>
+        <p class="mt-1 text-lg font-bold text-accent">{priceRange}</p>
+      </div>
+      <div class="rounded-lg border border-border bg-bg-card p-4">
+        <p class="text-xs uppercase tracking-wider text-text-muted">Retailer</p>
+        <p class="mt-1 text-lg font-bold text-text-primary">{retailerName}</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="prose prose-invert max-w-none">
+    <Content />
+  </div>
+
+  <!-- Sidebar -->
+  <Fragment slot="sidebar">
+    <div class="rounded-lg border border-border bg-bg-card p-5">
+      <h3 class="mb-3 text-sm font-semibold uppercase tracking-wider text-text-muted">Other Retailers</h3>
+      <ul class="space-y-2 text-sm">
+        <li><a href="/where-to-buy/walmart" class="text-text-secondary hover:text-text-primary">Walmart</a></li>
+        <li><a href="/where-to-buy/kroger" class="text-text-secondary hover:text-text-primary">Kroger</a></li>
+        <li><a href="/where-to-buy/target" class="text-text-secondary hover:text-text-primary">Target</a></li>
+        <li><a href="/where-to-buy/amazon" class="text-text-secondary hover:text-text-primary">Amazon</a></li>
+        <li><a href="/where-to-buy/walgreens" class="text-text-secondary hover:text-text-primary">Walgreens</a></li>
+        <li><a href="/where-to-buy/cvs" class="text-text-secondary hover:text-text-primary">CVS</a></li>
+      </ul>
+    </div>
+    <div class="rounded-lg border border-border bg-bg-card p-5">
+      <h3 class="mb-3 text-sm font-semibold uppercase tracking-wider text-text-muted">Quick Links</h3>
+      <ul class="space-y-2 text-sm">
+        <li><a href="/where-to-buy" class="text-text-secondary hover:text-text-primary">All Retailers</a></li>
+        <li><a href="/nutrition" class="text-text-secondary hover:text-text-primary">Nutrition Facts</a></li>
+        <li><a href="/is-it-back" class="text-text-secondary hover:text-text-primary">Is It Back?</a></li>
+      </ul>
+    </div>
+  </Fragment>
+
+  <JsonLd
+    slot="schema"
+    type="Product"
+    data={{
+      name: 'Diet Cherry Coke',
+      description: `Buy Diet Cherry Coke at ${retailerName}`,
+      brand: 'Coca-Cola',
+      image: image?.src,
+    }}
+  />
+</ArticleLayout>
