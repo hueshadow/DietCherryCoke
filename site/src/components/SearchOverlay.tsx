@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import Fuse from 'fuse.js';
+import type Fuse from 'fuse.js';
 
 interface SearchItem {
   title: string;
@@ -28,11 +28,13 @@ export default function SearchOverlay({ isOpen, onClose }: { isOpen: boolean; on
   useEffect(() => {
     if (isOpen && index.length === 0) {
       setLoading(true);
-      fetch('/search-index.json')
-        .then((r) => r.json())
-        .then((data: SearchItem[]) => {
+      Promise.all([
+        fetch('/search-index.json').then((r) => r.json()),
+        import('fuse.js').then((m) => m.default),
+      ])
+        .then(([data, FuseLib]: [SearchItem[], typeof Fuse]) => {
           setIndex(data);
-          fuseRef.current = new Fuse(data, {
+          fuseRef.current = new FuseLib(data, {
             keys: [
               { name: 'title', weight: 3 },
               { name: 'description', weight: 2 },
@@ -86,7 +88,7 @@ export default function SearchOverlay({ isOpen, onClose }: { isOpen: boolean; on
     const parts = text.split(regex);
     return parts.map((part, i) =>
       regex.test(part) ? (
-        <mark key={i} style={{ background: '#e61e2b33', color: '#f5f5f5', borderRadius: '2px', padding: '0 2px' }}>
+        <mark key={i} style={{ background: '#f2444433', color: '#f5f5f5', borderRadius: '2px', padding: '0 2px' }}>
           {part}
         </mark>
       ) : (
@@ -114,7 +116,7 @@ export default function SearchOverlay({ isOpen, onClose }: { isOpen: boolean; on
       }}>
         {/* Search input */}
         <div style={{ padding: '16px', borderBottom: '1px solid #333', display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#737373" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#888888" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" />
           </svg>
           <input
@@ -130,20 +132,20 @@ export default function SearchOverlay({ isOpen, onClose }: { isOpen: boolean; on
           />
           <kbd style={{
             background: '#0a0a0a', border: '1px solid #333', borderRadius: '4px',
-            padding: '2px 8px', fontSize: '12px', color: '#737373',
+            padding: '2px 8px', fontSize: '12px', color: '#888888',
           }}>ESC</kbd>
         </div>
 
         {/* Results */}
         <div style={{ overflowY: 'auto', padding: '8px' }}>
           {loading && (
-            <p style={{ padding: '24px', textAlign: 'center', color: '#737373' }}>Loading search index...</p>
+            <p style={{ padding: '24px', textAlign: 'center', color: '#888888' }}>Loading search index...</p>
           )}
           {!loading && query.length >= 3 && results.length === 0 && (
-            <p style={{ padding: '24px', textAlign: 'center', color: '#737373' }}>No results found for "{query}"</p>
+            <p style={{ padding: '24px', textAlign: 'center', color: '#888888' }}>No results found for "{query}"</p>
           )}
           {!loading && query.length > 0 && query.length < 3 && (
-            <p style={{ padding: '24px', textAlign: 'center', color: '#737373' }}>Type at least 3 characters to search</p>
+            <p style={{ padding: '24px', textAlign: 'center', color: '#888888' }}>Type at least 3 characters to search</p>
           )}
           {results.map((result) => (
             <a
@@ -162,8 +164,8 @@ export default function SearchOverlay({ isOpen, onClose }: { isOpen: boolean; on
                 <span style={{
                   fontSize: '11px', fontWeight: 600, textTransform: 'uppercase',
                   padding: '2px 6px', borderRadius: '4px',
-                  background: (CATEGORY_COLORS[result.item.category] || '#737373') + '22',
-                  color: CATEGORY_COLORS[result.item.category] || '#737373',
+                  background: (CATEGORY_COLORS[result.item.category] || '#888888') + '22',
+                  color: CATEGORY_COLORS[result.item.category] || '#888888',
                 }}>
                   {result.item.category}
                 </span>
