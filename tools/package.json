@@ -1,0 +1,26 @@
+{
+  "name": "dietcherrycoke-tools",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "cli": "tsx src/cli.ts",
+    "generate": "tsx src/cli.ts generate",
+    "publish": "tsx src/cli.ts publish",
+    "check": "tsx src/cli.ts check",
+    "status": "tsx src/cli.ts status"
+  },
+  "dependencies": {
+    "commander": "^12.0.0",
+    "dotenv": "^16.4.0",
+    "gray-matter": "^4.0.3",
+    "openai": "^4.70.0",
+    "snoowrap": "^1.23.0",
+    "playwright": "^1.48.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0",
+    "@types/node": "^22.0.0"
+  }
+}

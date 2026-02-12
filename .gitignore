@@ -21,3 +21,7 @@ dist/
 
 # Build
 .astro/
+
+# Backlink tools
+tools/data/browser-state/
+.playwright-mcp/
