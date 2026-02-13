@@ -41,7 +41,7 @@
 | reddit.com/r/CocaCola | | | ⬜ | 0 | 0 | | 品牌讨论 |
 | reddit.com/r/ToFizzOrNotToFizz | | | ⬜ | 0 | 0 | | 新品评测 |
 | reddit.com/r/nostalgia | | | ⬜ | 0 | 0 | | 怀旧话题 |
-| indiehackers.com | | | ⬜ | — | 0 | | 项目分享 |
+| indiehackers.com | indiehackers.com/product/diet-cherry-coke | 2026-02-13 | ✅ | — | 1 | — | Product 页已创建，含 dietcherrycoke.net 网站链接 + About 描述链接 |
 | v2ex.com | | | ⬜ | — | 0 | | 中文社区 |
 
 ## Tier 4 — 社交 Profile / 聚合
@@ -57,7 +57,7 @@
 
 | 月份 | 新增外链数 | Referring Domains | DR | 目标词排名 | 月引荐流量 | 备注 |
 |------|-----------|-------------------|-----|-----------|-----------|------|
-| Month 1 | 14 | 6 | — | — | — | Patreon 5 条外链 + Linktree 4 条站内链接 + Quora 1 条 + Pinterest 2 条 + Behance 1 条 + DeviantArt 1 条 |
+| Month 1 | 16 | 7 | — | — | — | Patreon 5 条外链 + Linktree 4 条站内链接 + Quora 1 条 + Pinterest 2 条 + Behance 1 条 + DeviantArt 1 条 + IndieHackers 2 条 |
 | Month 2 | | | | | | |
 | Month 3 | | | | | | |
 | Month 4 | | | | | | |
@@ -74,4 +74,4 @@
 | 目标关键词 (diet cherry coke) | 20% | 0 | 0% |
 | 长尾关键词 | 20% | 4 | 29% |
 | 通用词 (click here, learn more) | 10% | 1 | 7% |
-| 裸 URL | 10% | 8 | 57% |
+| 裸 URL | 10% | 10 | 56% |
