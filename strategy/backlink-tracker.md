@@ -42,7 +42,7 @@
 | reddit.com/r/ToFizzOrNotToFizz | | | ⬜ | 0 | 0 | | 新品评测 |
 | reddit.com/r/nostalgia | | | ⬜ | 0 | 0 | | 怀旧话题 |
 | indiehackers.com | indiehackers.com/product/diet-cherry-coke | 2026-02-13 | ✅ | — | 1 | — | Product 页已创建，含 dietcherrycoke.net 网站链接 + About 描述链接 |
-| v2ex.com | | | ⬜ | — | 0 | | 中文社区 |
+| v2ex.com | v2ex.com/member/hueshadow989 | 2026-02-13 | ⏸️ | — | 0 | — | 账号已创建但需邀请码激活，无法发帖 |
 
 ## Tier 4 — 社交 Profile / 聚合
 
