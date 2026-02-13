@@ -11,7 +11,7 @@
 |------|----------|----------|------|----------|--------|----------|------|
 | patreon.com | patreon.com/DietCherryCokeNet | 2026-02-13 | ✅ | dofollow | 裸 URL ×4 + 品牌词 ×1 | — | Ultimate Guide 文章已发布 |
 | patreon.com (文章2) | | | ⬜ | dofollow | | | 历史回顾文章 |
-| velog.io | | | ⬜ | dofollow | | | 韩语内容 |
+| velog.io | | | ⏸️ | dofollow | | | 韩语内容 — 注册 API 返回 404，v2 API 已废弃，待平台修复 |
 | reddit.com/r/soda | | | ⬜ | nofollow | | | 先养号再发 |
 | reddit.com/r/CocaCola | | | ⬜ | nofollow | | | 先养号再发 |
 | reddit.com/r/diet | | | ⬜ | nofollow | | | 先养号再发 |
@@ -26,7 +26,8 @@
 | 平台 | 账号/URL | 提交日期 | 状态 | 链接属性 | 锚文本 | 引荐流量 | 备注 |
 |------|----------|----------|------|----------|--------|----------|------|
 | pinterest.com | pinterest.com/pin/681099143691029108/ | 2026-02-13 | ✅ | nofollow | 裸 URL ×1 | — | Pin 1: Recipes 页，Board "Diet Cherry Coke Recipes" |
-| note.com | | | ⬜ | dofollow | | | 日语内容 |
+| pinterest.com (Pin2) | pinterest.com/pin/681099143691029577/ | 2026-02-13 | ✅ | nofollow | 裸 URL ×1 | — | Pin 2: Where to Buy 页，同 Board |
+| note.com | | | ⏸️ | dofollow | | | 日语内容 — 注册被网络环境拦截 (403)，需换网络重试 |
 | list.ly (列表1) | | 2026-02-13 | ❌ | dofollow | | | 平台已于 2025-11 关闭 |
 | list.ly (列表2) | | 2026-02-13 | ❌ | dofollow | | | 平台已于 2025-11 关闭 |
 | behance.net | | | ⬜ | dofollow | | | 视觉内容（可选） |
@@ -56,7 +57,7 @@
 
 | 月份 | 新增外链数 | Referring Domains | DR | 目标词排名 | 月引荐流量 | 备注 |
 |------|-----------|-------------------|-----|-----------|-----------|------|
-| Month 1 | 11 | 4 | — | — | — | Patreon 5 条外链 + Linktree 4 条站内链接 + Quora 1 条 + Pinterest 1 条 |
+| Month 1 | 12 | 4 | — | — | — | Patreon 5 条外链 + Linktree 4 条站内链接 + Quora 1 条 + Pinterest 2 条 |
 | Month 2 | | | | | | |
 | Month 3 | | | | | | |
 | Month 4 | | | | | | |
@@ -73,4 +74,4 @@
 | 目标关键词 (diet cherry coke) | 20% | 0 | 0% |
 | 长尾关键词 | 20% | 4 | 36% |
 | 通用词 (click here, learn more) | 10% | 1 | 9% |
-| 裸 URL | 10% | 5 | 42% |
+| 裸 URL | 10% | 6 | 43% |
