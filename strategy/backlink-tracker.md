@@ -31,7 +31,7 @@
 | list.ly (列表1) | | 2026-02-13 | ❌ | dofollow | | | 平台已于 2025-11 关闭 |
 | list.ly (列表2) | | 2026-02-13 | ❌ | dofollow | | | 平台已于 2025-11 关闭 |
 | behance.net | behance.net/gallery/244075013/Diet-Cherry-Coke-Website-Design-Development | 2026-02-13 | ✅ | dofollow | 裸 URL ×1 | — | 项目已发布，含首页截图 + 文字描述 + dietcherrycoke.net 链接 |
-| deviantart.com | | | ⬜ | dofollow | | | 创意内容（可选） |
+| deviantart.com | deviantart.com/dietcherrycokenet/art/1298371618 | 2026-02-13 | ✅ | dofollow | 裸 URL ×1 | — | Deviation 已发布，含首页截图 + 描述 + dietcherrycoke.net 链接 |
 
 ## Tier 3 — 社区参与
 
@@ -57,7 +57,7 @@
 
 | 月份 | 新增外链数 | Referring Domains | DR | 目标词排名 | 月引荐流量 | 备注 |
 |------|-----------|-------------------|-----|-----------|-----------|------|
-| Month 1 | 13 | 5 | — | — | — | Patreon 5 条外链 + Linktree 4 条站内链接 + Quora 1 条 + Pinterest 2 条 + Behance 1 条 |
+| Month 1 | 14 | 6 | — | — | — | Patreon 5 条外链 + Linktree 4 条站内链接 + Quora 1 条 + Pinterest 2 条 + Behance 1 条 + DeviantArt 1 条 |
 | Month 2 | | | | | | |
 | Month 3 | | | | | | |
 | Month 4 | | | | | | |
@@ -70,8 +70,8 @@
 
 | 锚文本类型 | 目标占比 | 已使用次数 | 实际占比 |
 |-----------|---------|-----------|---------|
-| 品牌词 (Diet Cherry Coke Net) | 40% | 1 | 9% |
+| 品牌词 (Diet Cherry Coke Net) | 40% | 1 | 7% |
 | 目标关键词 (diet cherry coke) | 20% | 0 | 0% |
-| 长尾关键词 | 20% | 4 | 36% |
-| 通用词 (click here, learn more) | 10% | 1 | 9% |
-| 裸 URL | 10% | 7 | 47% |
+| 长尾关键词 | 20% | 4 | 29% |
+| 通用词 (click here, learn more) | 10% | 1 | 7% |
+| 裸 URL | 10% | 8 | 57% |
