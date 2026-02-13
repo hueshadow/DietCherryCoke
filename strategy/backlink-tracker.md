@@ -15,7 +15,7 @@
 | reddit.com/r/soda | | | ⬜ | nofollow | | | 先养号再发 |
 | reddit.com/r/CocaCola | | | ⬜ | nofollow | | | 先养号再发 |
 | reddit.com/r/diet | | | ⬜ | nofollow | | | 先养号再发 |
-| medium.com | | | ⬜ | nofollow | | | 英文评测文章 |
+| medium.com | medium.com/p/76783ffb5b89 | 2026-02-13 | 🔄 | nofollow | 长尾 ×3 | — | 草稿已写入，需手动发布 |
 | medium.com (文章2) | | | ⬜ | nofollow | | | 对比评测 |
 | medium.com (文章3) | | | ⬜ | nofollow | | | 健康分析 |
 | quora.com | | | ⬜ | nofollow | | | 回答 diet soda 问题 |
