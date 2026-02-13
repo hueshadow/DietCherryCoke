@@ -27,8 +27,8 @@
 |------|----------|----------|------|----------|--------|----------|------|
 | pinterest.com | | | ⬜ | nofollow | | | 食谱 Board |
 | note.com | | | ⬜ | dofollow | | | 日语内容 |
-| list.ly (列表1) | | | ⬜ | dofollow | | | Best Diet Sodas |
-| list.ly (列表2) | | | ⬜ | dofollow | | | Cherry Coke Recipes |
+| list.ly (列表1) | | 2026-02-13 | ❌ | dofollow | | | 平台已于 2025-11 关闭 |
+| list.ly (列表2) | | 2026-02-13 | ❌ | dofollow | | | 平台已于 2025-11 关闭 |
 | behance.net | | | ⬜ | dofollow | | | 视觉内容（可选） |
 | deviantart.com | | | ⬜ | dofollow | | | 创意内容（可选） |
 
@@ -47,7 +47,7 @@
 
 | 平台 | 账号/URL | 创建日期 | 状态 | 备注 |
 |------|----------|----------|------|------|
-| linktr.ee | | | ⬜ | 聚合所有链接 |
+| linktr.ee | linktr.ee/dietcherrycoke5 | 2026-02-13 | ✅ | Profile 页含 4 条站内链接 + Patreon 链接 |
 | youtube.com | | | ⬜ | 短视频评测（可选） |
 
 ---
@@ -56,7 +56,7 @@
 
 | 月份 | 新增外链数 | Referring Domains | DR | 目标词排名 | 月引荐流量 | 备注 |
 |------|-----------|-------------------|-----|-----------|-----------|------|
-| Month 1 | 5 | 1 | — | — | — | Patreon 首篇文章发布，含 5 条外链 |
+| Month 1 | 9 | 2 | — | — | — | Patreon 首篇文章 5 条外链 + Linktree 4 条站内链接 |
 | Month 2 | | | | | | |
 | Month 3 | | | | | | |
 | Month 4 | | | | | | |
@@ -69,8 +69,8 @@
 
 | 锚文本类型 | 目标占比 | 已使用次数 | 实际占比 |
 |-----------|---------|-----------|---------|
-| 品牌词 (Diet Cherry Coke Net) | 40% | 1 | 20% |
+| 品牌词 (Diet Cherry Coke Net) | 40% | 1 | 11% |
 | 目标关键词 (diet cherry coke) | 20% | 0 | 0% |
-| 长尾关键词 | 20% | 0 | 0% |
-| 通用词 (click here, learn more) | 10% | 0 | 0% |
-| 裸 URL | 10% | 4 | 80% |
+| 长尾关键词 | 20% | 3 | 33% |
+| 通用词 (click here, learn more) | 10% | 1 | 11% |
+| 裸 URL | 10% | 4 | 44% |
