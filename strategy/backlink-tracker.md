@@ -19,7 +19,7 @@
 | medium.com (文章2) | | | ⬜ | nofollow | | | 对比评测 |
 | medium.com (文章3) | | | ⬜ | nofollow | | | 健康分析 |
 | quora.com | quora.com/What-is-Coca-Cola-discontinuing/answer/Ronn-Huang | 2026-02-13 | ✅ | nofollow | 长尾 ×1 | — | 回答已发布，含 where-to-buy 链接卡片 |
-| wordpress.org | | | ⬜ | nofollow | | | 插件评论区 |
+| wordpress.org | | | ⏸️ | nofollow | | | reCAPTCHA 阻止自动注册，需手动完成 |
 
 ## Tier 2 — 内容平台 / 多语言
 
