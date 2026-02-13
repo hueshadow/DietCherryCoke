@@ -25,7 +25,7 @@
 
 | 平台 | 账号/URL | 提交日期 | 状态 | 链接属性 | 锚文本 | 引荐流量 | 备注 |
 |------|----------|----------|------|----------|--------|----------|------|
-| pinterest.com | | | ⬜ | nofollow | | | 食谱 Board |
+| pinterest.com | pinterest.com/pin/681099143691029108/ | 2026-02-13 | ✅ | nofollow | 裸 URL ×1 | — | Pin 1: Recipes 页，Board "Diet Cherry Coke Recipes" |
 | note.com | | | ⬜ | dofollow | | | 日语内容 |
 | list.ly (列表1) | | 2026-02-13 | ❌ | dofollow | | | 平台已于 2025-11 关闭 |
 | list.ly (列表2) | | 2026-02-13 | ❌ | dofollow | | | 平台已于 2025-11 关闭 |
@@ -56,7 +56,7 @@
 
 | 月份 | 新增外链数 | Referring Domains | DR | 目标词排名 | 月引荐流量 | 备注 |
 |------|-----------|-------------------|-----|-----------|-----------|------|
-| Month 1 | 10 | 3 | — | — | — | Patreon 5 条外链 + Linktree 4 条站内链接 + Quora 1 条 |
+| Month 1 | 11 | 4 | — | — | — | Patreon 5 条外链 + Linktree 4 条站内链接 + Quora 1 条 + Pinterest 1 条 |
 | Month 2 | | | | | | |
 | Month 3 | | | | | | |
 | Month 4 | | | | | | |
@@ -69,8 +69,8 @@
 
 | 锚文本类型 | 目标占比 | 已使用次数 | 实际占比 |
 |-----------|---------|-----------|---------|
-| 品牌词 (Diet Cherry Coke Net) | 40% | 1 | 11% |
+| 品牌词 (Diet Cherry Coke Net) | 40% | 1 | 9% |
 | 目标关键词 (diet cherry coke) | 20% | 0 | 0% |
 | 长尾关键词 | 20% | 4 | 36% |
-| 通用词 (click here, learn more) | 10% | 1 | 11% |
-| 裸 URL | 10% | 4 | 44% |
+| 通用词 (click here, learn more) | 10% | 1 | 9% |
+| 裸 URL | 10% | 5 | 42% |
