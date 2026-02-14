@@ -33,26 +33,30 @@ const faqItems = [
   description="Your ultimate guide to Diet Cherry Coke. Find out if it's back, where to buy it, nutrition facts, recipes, and how it compares to other diet sodas."
 >
   <!-- Hero -->
-  <section slot="hero" class="bg-bg-secondary py-20 text-center">
-    <div class="mx-auto max-w-3xl px-4">
-      <p class="mb-4 text-sm text-text-muted">Last Updated: {lastUpdated}</p>
-      <h1 class="text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
+  <section slot="hero" class="bg-bg-secondary py-20 lg:py-28 relative overflow-hidden">
+    <!-- Decorative background element -->
+    <div class="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+    <div class="absolute bottom-0 left-0 w-48 h-48 bg-accent/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+
+    <div class="mx-auto max-w-3xl px-4 relative z-10">
+      <p class="mb-4 text-sm text-text-muted font-mono animate-reveal">Last Updated: {lastUpdated}</p>
+      <h1 class="text-4xl sm:text-5xl lg:text-7xl font-bold leading-tight animate-reveal animate-reveal-delay-1">
         Everything About<br />
-        <span class="text-accent">Diet Cherry Coke</span>
+        <span class="text-accent text-gradient">Diet Cherry Coke</span>
       </h1>
-      <p class="mt-6 text-lg text-text-secondary sm:text-xl">
+      <p class="mt-6 text-lg sm:text-xl text-text-secondary max-w-xl animate-reveal animate-reveal-delay-2">
         Is it back? Where can you buy it? Get the latest on availability, nutrition facts, recipes, and comparisons.
       </p>
-      <div class="mt-8 flex flex-wrap justify-center gap-4">
+      <div class="mt-8 flex flex-wrap justify-center gap-4 animate-reveal animate-reveal-delay-3">
         <a
           href="/is-it-back"
-          class="rounded-lg bg-accent-btn px-6 py-3 font-semibold text-white no-underline transition-colors duration-250 hover:bg-accent-btn-hover"
+          class="btn-brutalist rounded-none bg-accent-btn px-8 py-4 font-bold text-white no-underline uppercase tracking-wider transition-all"
         >
           Is It Back?
         </a>
         <a
           href="/where-to-buy"
-          class="rounded-lg border border-border px-6 py-3 font-semibold text-text-primary no-underline transition-colors duration-250 hover:border-border-hover hover:bg-bg-tertiary"
+          class="btn-brutalist rounded-none border-2 border-border px-8 py-4 font-bold text-text-primary no-underline uppercase tracking-wider hover:border-accent hover:text-accent"
         >
           Where to Buy
         </a>
@@ -60,53 +64,53 @@ const faqItems = [
     </div>
   </section>
 
-  <!-- Key Facts Box -->
-  <div class="mb-12 rounded-lg border border-accent/30 bg-bg-tertiary p-6">
-    <h2 class="mb-3 text-sm font-semibold uppercase tracking-wider text-accent">Key Facts</h2>
+  <!-- Key Facts Box — Neo-Brutalist style -->
+  <div class="mb-12 border-2 border-accent bg-bg-tertiary p-6 lg:p-8 animate-reveal animate-reveal-delay-4">
+    <h2 class="mb-4 text-sm font-bold uppercase tracking-widest text-accent">Key Facts</h2>
     <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      <div>
-        <p class="text-2xl font-bold text-text-primary">0</p>
-        <p class="text-sm text-text-muted">Calories per can</p>
+      <div class="border-l-4 border-border pl-4">
+        <p class="data-point text-3xl lg:text-4xl text-text-primary">0</p>
+        <p class="text-sm text-text-muted uppercase tracking-wide">Calories per can</p>
       </div>
-      <div>
-        <p class="text-2xl font-bold text-accent">Back!</p>
-        <p class="text-sm text-text-muted">Returned Feb 2026</p>
+      <div class="border-l-4 border-accent pl-4">
+        <p class="data-point text-3xl lg:text-4xl text-accent">Back!</p>
+        <p class="text-sm text-text-muted uppercase tracking-wide">Returned Feb 2026</p>
       </div>
-      <div>
-        <p class="text-2xl font-bold text-text-primary">46mg</p>
-        <p class="text-sm text-text-muted">Caffeine per 12 oz</p>
+      <div class="border-l-4 border-border pl-4">
+        <p class="data-point text-3xl lg:text-4xl text-text-primary">46mg</p>
+        <p class="text-sm text-text-muted uppercase tracking-wide">Caffeine per 12 oz</p>
       </div>
-      <div>
-        <p class="text-2xl font-bold text-text-primary">6+</p>
-        <p class="text-sm text-text-muted">Major retailers</p>
+      <div class="border-l-4 border-border pl-4">
+        <p class="data-point text-3xl lg:text-4xl text-text-primary">6+</p>
+        <p class="text-sm text-text-muted uppercase tracking-wide">Major retailers</p>
       </div>
     </div>
   </div>
 
-  <!-- Quick links grid -->
-  <section class="mb-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-    <a href="/is-it-back" class="group rounded-lg border border-border bg-bg-card p-6 no-underline transition-colors duration-250 hover:border-accent">
-      <h2 class="text-lg font-semibold text-text-primary group-hover:text-accent">Is It Back?</h2>
+  <!-- Quick links grid — Neo-Brutalist cards -->
+  <section class="mb-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <a href="/is-it-back" class="card-hover group border-2 border-border bg-bg-card p-6 no-underline">
+      <h2 class="text-lg font-bold text-text-primary group-hover:text-accent uppercase tracking-wide">Is It Back?</h2>
       <p class="mt-2 text-sm text-text-secondary">The full story on Diet Cherry Coke's 2026 comeback, timeline, and what's changed.</p>
     </a>
-    <a href="/where-to-buy" class="group rounded-lg border border-border bg-bg-card p-6 no-underline transition-colors duration-250 hover:border-accent">
-      <h2 class="text-lg font-semibold text-text-primary group-hover:text-accent">Where to Buy</h2>
+    <a href="/where-to-buy" class="card-hover group border-2 border-border bg-bg-card p-6 no-underline">
+      <h2 class="text-lg font-bold text-text-primary group-hover:text-accent uppercase tracking-wide">Where to Buy</h2>
       <p class="mt-2 text-sm text-text-secondary">Find Diet Cherry Coke at Walmart, Kroger, Target, Amazon, and more.</p>
     </a>
-    <a href="/nutrition" class="group rounded-lg border border-border bg-bg-card p-6 no-underline transition-colors duration-250 hover:border-accent">
-      <h2 class="text-lg font-semibold text-text-primary group-hover:text-accent">Nutrition Facts</h2>
+    <a href="/nutrition" class="card-hover group border-2 border-border bg-bg-card p-6 no-underline">
+      <h2 class="text-lg font-bold text-text-primary group-hover:text-accent uppercase tracking-wide">Nutrition Facts</h2>
       <p class="mt-2 text-sm text-text-secondary">Calories, caffeine, ingredients, and how it compares to other diet sodas.</p>
     </a>
-    <a href="/recipes" class="group rounded-lg border border-border bg-bg-card p-6 no-underline transition-colors duration-250 hover:border-accent">
-      <h2 class="text-lg font-semibold text-text-primary group-hover:text-accent">Recipes</h2>
+    <a href="/recipes" class="card-hover group border-2 border-border bg-bg-card p-6 no-underline">
+      <h2 class="text-lg font-bold text-text-primary group-hover:text-accent uppercase tracking-wide">Recipes</h2>
       <p class="mt-2 text-sm text-text-secondary">Creative cocktails, floats, and mocktails made with Diet Cherry Coke.</p>
     </a>
-    <a href="/compare" class="group rounded-lg border border-border bg-bg-card p-6 no-underline transition-colors duration-250 hover:border-accent">
-      <h2 class="text-lg font-semibold text-text-primary group-hover:text-accent">Compare</h2>
+    <a href="/compare" class="card-hover group border-2 border-border bg-bg-card p-6 no-underline">
+      <h2 class="text-lg font-bold text-text-primary group-hover:text-accent uppercase tracking-wide">Compare</h2>
       <p class="mt-2 text-sm text-text-secondary">Diet Cherry Coke vs Coke Zero Cherry, Diet Coke, and more.</p>
     </a>
-    <a href="/compare/diet-cherry-coke-vs-coke-zero-cherry" class="group rounded-lg border border-border bg-bg-card p-6 no-underline transition-colors duration-250 hover:border-accent">
-      <h2 class="text-lg font-semibold text-text-primary group-hover:text-accent">vs Coke Zero Cherry</h2>
+    <a href="/compare/diet-cherry-coke-vs-coke-zero-cherry" class="card-hover group border-2 border-border bg-bg-card p-6 no-underline">
+      <h2 class="text-lg font-bold text-text-primary group-hover:text-accent uppercase tracking-wide">vs Coke Zero Cherry</h2>
       <p class="mt-2 text-sm text-text-secondary">The definitive comparison: taste, nutrition, caffeine, and price.</p>
     </a>
   </section>
@@ -126,9 +130,9 @@ const faqItems = [
   </section>
 
   <!-- Quick Nutrition Overview -->
-  <section class="mb-12">
-    <h2 class="mb-4 text-2xl font-bold">Quick Nutrition Overview</h2>
-    <p class="mb-4 text-text-secondary leading-relaxed">
+  <section class="mb-12 animate-reveal animate-reveal-delay-5">
+    <h2 class="mb-6 text-2xl font-bold uppercase tracking-wide">Quick Nutrition Overview</h2>
+    <p class="mb-6 text-text-secondary leading-relaxed">
       Diet Cherry Coke is a zero-calorie beverage, making it a popular choice for those watching their calorie intake. Here's a quick snapshot of what's in every 12 oz can:
     </p>
     <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
@@ -138,14 +142,14 @@ const faqItems = [
         { label: 'Caffeine', value: '46mg' },
         { label: 'Sodium', value: '40mg' },
       ].map((item) => (
-        <div class="rounded-lg border border-border bg-bg-card p-4 text-center">
-          <p class="text-2xl font-bold text-accent">{item.value}</p>
-          <p class="mt-1 text-sm text-text-muted">{item.label}</p>
+        <div class="border-2 border-border bg-bg-card p-5 text-center card-hover">
+          <p class="data-point text-3xl lg:text-4xl text-accent">{item.value}</p>
+          <p class="mt-2 text-sm text-text-muted uppercase tracking-wider">{item.label}</p>
         </div>
       ))}
     </div>
-    <p class="mt-4 text-text-secondary">
-      For the complete nutritional breakdown including ingredients and health considerations, visit our <a href="/nutrition">Nutrition Facts</a> page.
+    <p class="mt-6 text-text-secondary">
+      For the complete nutritional breakdown including ingredients and health considerations, visit our <a href="/nutrition" class="link-slide">Nutrition Facts</a> page.
     </p>
   </section>
 
@@ -162,18 +166,21 @@ const faqItems = [
     </div>
   </section>
 
-  <!-- FAQ Section -->
-  <section class="mb-12">
-    <h2 class="mb-6 text-2xl font-bold">Frequently Asked Questions</h2>
-    <div class="space-y-4">
-      {faqItems.map((item) => (
-        <details class="group rounded-lg border border-border bg-bg-card">
-          <summary class="cursor-pointer px-6 py-4 font-medium text-text-primary transition-colors hover:text-accent">
-            {item.question}
+  <!-- FAQ Section — Neo-Brutalist -->
+  <section class="mb-12 animate-reveal animate-reveal-delay-6">
+    <h2 class="mb-6 text-2xl font-bold uppercase tracking-wide">Frequently Asked Questions</h2>
+    <div class="space-y-3">
+      {faqItems.map((item, index) => (
+        <details class="group border-2 border-border bg-bg-card">
+          <summary class="cursor-pointer px-6 py-4 font-bold text-text-primary transition-colors hover:text-accent flex items-center justify-between">
+            <span class="pr-4">{item.question}</span>
+            <span class="text-accent text-xl font-mono group-open:rotate-45 transition-transform">+</span>
           </summary>
-          <p class="px-6 pb-4 text-sm text-text-secondary leading-relaxed">
-            {item.answer}
-          </p>
+          <div class="px-6 pb-5 border-t border-border">
+            <p class="text-sm text-text-secondary leading-relaxed pt-4">
+              {item.answer}
+            </p>
+          </div>
         </details>
       ))}
     </div>

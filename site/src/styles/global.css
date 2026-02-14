@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+/* Neo-Brutalist Design System */
 @theme {
   /* Dark theme backgrounds */
   --color-bg-primary: #0a0a0a;
@@ -10,89 +11,361 @@
   /* Text colors */
   --color-text-primary: #f5f5f5;
   --color-text-secondary: #a3a3a3;
-  --color-text-muted: #888888;
+  --color-text-muted: #737373;
 
-  /* Accent colors — Coca-Cola red (WCAG AA compliant on all dark bgs) */
-  --color-accent: #f24444;
-  --color-accent-hover: #ff6666;
+  /* Accent — Coca-Cola red (Neo-Brutalist: bold, not muted) */
+  --color-accent: #e61e2b;
+  --color-accent-hover: #ff2d3a;
   --color-accent-btn: #dc2626;
-  --color-accent-btn-hover: #c42b2b;
-  --color-accent-muted: #b91c26;
+  --color-accent-btn-hover: #ef4444;
+  --color-accent-muted: #991b1b;
 
-  /* Border */
+  /* Border — Neo-Brutalist harsh contrasts */
   --color-border: #2a2a2a;
   --color-border-hover: #404040;
 
-  /* Transition */
-  --transition-timing-default: 250ms;
+  /* Animation timing */
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
+  --transition-timing: 250ms;
 }
 
-/* Base styles */
+/* ============================================
+   TYPOGRAPHY — Custom Font Pairings
+   ============================================ */
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap');
+
 @layer base {
   html {
     background-color: var(--color-bg-primary);
     color: var(--color-text-primary);
-    font-family: system-ui, -apple-system, sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
   }
 
   body {
     min-height: 100dvh;
   }
 
+  /* Display font for headings — Bebas Neue for impact */
+  h1, h2, h3, .font-display {
+    font-family: 'Bebas Neue', 'Oswald', sans-serif;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  /* Mono for data/numbers — Space Mono */
+  .font-mono, code, .data-point {
+    font-family: 'Space Mono', 'JetBrains Mono', monospace;
+  }
+
+  /* Body text */
+  p, li, span {
+    font-family: 'Inter', system-ui, sans-serif;
+    line-height: 1.7;
+  }
+
+  /* Links — Neo-Brutalist: bold underline */
   a {
     color: var(--color-accent);
     text-decoration: underline;
-    text-underline-offset: 2px;
-    transition: color var(--transition-timing-default) ease;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+    text-decoration-skip-ink: none;
+    transition: all var(--transition-timing) var(--ease-out-expo);
   }
 
   a:hover {
     color: var(--color-accent-hover);
+    text-decoration-thickness: 3px;
   }
 
-  /* Navigation, buttons, and card links don't need underlines */
+  /* Navigation, buttons, and card links */
   nav a,
   a.no-underline,
-  a[class*="rounded-lg"],
-  a[class*="btn"],
-  footer a {
+  footer a,
+  [class*="btn"] {
     text-decoration: none;
+  }
+
+  /* Custom focus states — Neo-Brutalist: bold outline */
+  :focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+
+  /* Selection */
+  ::selection {
+    background-color: var(--color-accent);
+    color: white;
   }
 }
 
-/* Prose styles for rendered Markdown content */
+/* ============================================
+   ENTRANCE ANIMATIONS — Staggered Reveal
+   ============================================ */
+@layer utilities {
+  .animate-reveal {
+    animation: revealUp 800ms var(--ease-out-expo) both;
+  }
+
+  .animate-reveal-delay-1 { animation-delay: 100ms; }
+  .animate-reveal-delay-2 { animation-delay: 200ms; }
+  .animate-reveal-delay-3 { animation-delay: 300ms; }
+  .animate-reveal-delay-4 { animation-delay: 400ms; }
+  .animate-reveal-delay-5 { animation-delay: 500ms; }
+  .animate-reveal-delay-6 { animation-delay: 600ms; }
+
+  @keyframes revealUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  /* Fade in */
+  .animate-fade-in {
+    animation: fadeIn 600ms var(--ease-out-quart) both;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* Slide in from left */
+  .animate-slide-left {
+    animation: slideLeft 700ms var(--ease-out-expo) both;
+  }
+
+  @keyframes slideLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
+/* ============================================
+   MICRO-INTERACTIONS — Hover States
+   ============================================ */
 @layer components {
-  .prose h1 { font-size: 2.25rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; }
-  .prose h2 { font-size: 1.5rem; font-weight: 600; margin-top: 2rem; margin-bottom: 0.75rem; }
-  .prose h3 { font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem; }
-  .prose p { margin-bottom: 1rem; line-height: 1.75; color: var(--color-text-secondary); }
-  .prose ul, .prose ol { margin-bottom: 1rem; padding-left: 1.5rem; color: var(--color-text-secondary); }
-  .prose ul { list-style-type: disc; }
-  .prose ol { list-style-type: decimal; }
-  .prose li { margin-bottom: 0.25rem; }
-  .prose blockquote {
-    border-left: 3px solid var(--color-accent);
-    padding-left: 1rem;
+  /* Card hover — Neo-Brutalist lift + shadow */
+  .card-hover {
+    transition: transform var(--transition-timing) var(--ease-out-expo),
+                box-shadow var(--transition-timing) var(--ease-out-expo),
+                border-color var(--transition-timing) ease;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 8px 8px 0 var(--color-accent);
+    border-color: var(--color-accent);
+  }
+
+  /* Button hover — press effect */
+  .btn-brutalist {
+    position: relative;
+    transition: all var(--transition-timing) var(--ease-out-expo);
+    box-shadow: 4px 4px 0 var(--color-border-hover);
+  }
+
+  .btn-brutalist:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--color-accent);
+  }
+
+  .btn-brutalist:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--color-accent);
+  }
+
+  /* Link hover — Neo-Brutalist: slide underline */
+  .link-slide {
+    position: relative;
+  }
+
+  .link-slide::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--color-accent);
+    transition: width var(--transition-timing) var(--ease-out-expo);
+  }
+
+  .link-slide:hover::after {
+    width: 100%;
+  }
+
+  /* Icon rotate on hover */
+  .icon-rotate {
+    transition: transform var(--transition-timing) var(--ease-out-expo);
+  }
+
+  .group:hover .icon-rotate {
+    transform: rotate(15deg) scale(1.1);
+  }
+}
+
+/* ============================================
+   PROSE STYLES — Content Typography
+   ============================================ */
+@layer components {
+  .prose h1 {
+    font-family: 'Bebas Neue', 'Oswald', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    margin-top: 2rem;
     margin-bottom: 1rem;
+    line-height: 1.1;
+  }
+
+  .prose h2 {
+    font-family: 'Bebas Neue', 'Oswald', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+  }
+
+  .prose h3 {
+    font-family: 'Bebas Neue', 'Oswald', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .prose p {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+  }
+
+  .prose strong {
+    color: var(--color-text-primary);
+    font-weight: 600;
+  }
+
+  .prose a {
+    font-weight: 500;
+  }
+
+  .prose ul, .prose ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    color: var(--color-text-secondary);
+  }
+
+  .prose ul { list-style-type: square; }
+  .prose ol { list-style-type: decimal; }
+  .prose li { margin-bottom: 0.5rem; }
+
+  .prose blockquote {
+    border-left: 4px solid var(--color-accent);
+    padding-left: 1.25rem;
+    margin: 1.5rem 0;
     color: var(--color-text-muted);
     font-style: italic;
+    font-size: 1.1rem;
   }
+
   .prose code {
+    font-family: 'Space Mono', monospace;
     background-color: var(--color-bg-tertiary);
-    padding: 0.125rem 0.375rem;
-    border-radius: 0.25rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0;
     font-size: 0.875rem;
+    border: 1px solid var(--color-border);
   }
+
   .prose pre {
     background-color: var(--color-bg-tertiary);
-    padding: 1rem;
-    border-radius: 0.5rem;
+    padding: 1.25rem;
+    border-radius: 0;
     overflow-x: auto;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid var(--color-accent);
   }
-  .prose pre code { background: none; padding: 0; }
-  .prose hr { border-color: var(--color-border); margin: 2rem 0; }
-  .prose img { border-radius: 0.5rem; margin: 1.5rem 0; }
+
+  .prose pre code {
+    background: none;
+    padding: 0;
+    border: none;
+  }
+
+  .prose hr {
+    border-color: var(--color-border);
+    border-width: 2px;
+    margin: 2.5rem 0;
+  }
+
+  .prose img {
+    border-radius: 0;
+    margin: 1.5rem 0;
+    border: 2px solid var(--color-border);
+  }
+
+  /* Data/metric styling */
+  .data-point {
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+  }
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+@layer utilities {
+  /* Neo-Brutalist borders */
+  .border-brutal {
+    border: 2px solid var(--color-border);
+  }
+
+  .border-brutal-hover:hover {
+    border-color: var(--color-accent);
+    box-shadow: 4px 4px 0 var(--color-accent);
+  }
+
+  /* Text gradient */
+  .text-gradient {
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Noise texture overlay (optional) */
+  .noise-overlay::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    z-index: 9999;
+  }
 }
